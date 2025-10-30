@@ -6,8 +6,8 @@ comprehensive error handling for message streaming platforms.
 """
 
 import asyncio
-from typing import Any, Dict, List, Optional, Callable
 from enum import Enum
+from typing import Any, Callable, Dict, List, Optional
 
 from datadog_platform.core.base import BaseConnector
 
@@ -56,6 +56,13 @@ class KafkaConnector(BaseConnector):
                 - acks: Number of acknowledgments (0, 1, all)
                 - enable_idempotence: Enable exactly-once semantics (default: True)
                 - isolation_level: Consumer isolation level (read_uncommitted, read_committed)
+
+        Security Note:
+            When handling sensitive data, ALWAYS use SSL or SASL_SSL for
+            security_protocol. PLAINTEXT protocol transmits data unencrypted
+            and is only suitable for development/testing in trusted networks.
+            Credentials (sasl_username, sasl_password) should be kept secure
+            and never logged.
         """
         super().__init__(config)
         self.bootstrap_servers = config.get("bootstrap_servers")
@@ -63,10 +70,13 @@ class KafkaConnector(BaseConnector):
         self.consumer_group = config.get("consumer_group")
         self.client_id = config.get("client_id", "datadog-platform")
         self.security_protocol = config.get("security_protocol", "PLAINTEXT")
+
+        # Store credentials securely - these should NEVER be logged
         self.sasl_mechanism = config.get("sasl_mechanism")
         self.sasl_username = config.get("sasl_username")
         self.sasl_password = config.get("sasl_password")
         self.ssl_cafile = config.get("ssl_cafile")
+
         self.compression_type = config.get("compression_type")
         self.acks = config.get("acks", "all")
         self.enable_idempotence = config.get("enable_idempotence", True)
@@ -77,6 +87,15 @@ class KafkaConnector(BaseConnector):
 
         if isinstance(self.bootstrap_servers, str):
             self.bootstrap_servers = self.bootstrap_servers.split(",")
+
+        # Warn about insecure configuration in production
+        if self.security_protocol == "PLAINTEXT" and (self.sasl_username or self.sasl_password):
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.warning(
+                "Kafka connector configured with PLAINTEXT protocol but credentials provided. "
+                "This may expose credentials. Use SSL or SASL_SSL for secure transport."
+            )
 
     async def connect(self) -> None:
         """

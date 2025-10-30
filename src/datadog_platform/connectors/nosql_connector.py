@@ -62,15 +62,25 @@ class MongoDBConnector(BaseConnector):
         Establish connection to MongoDB.
 
         In production, would use motor (async MongoDB driver).
+        Credentials are NOT embedded in the connection string to prevent
+        accidental logging or exposure. Instead, they would be passed
+        separately to the client constructor.
         """
         await asyncio.sleep(0.01)  # Simulate connection
 
-        # Build connection string
-        auth = ""
-        if self.username and self.password:
-            auth = f"{self.username}:{self.password}@"
+        # Build connection string WITHOUT credentials
+        connection_string = f"mongodb://{self.host}:{self.port}/{self.database}"
 
-        connection_string = f"mongodb://{auth}{self.host}:{self.port}/{self.database}"
+        # In production, credentials would be passed separately to motor client:
+        # client = motor.motor_asyncio.AsyncIOMotorClient(
+        #     connection_string,
+        #     username=self.username,
+        #     password=self.password,
+        #     authSource=self.auth_source,
+        #     ssl=self.ssl,
+        #     maxPoolSize=self.max_pool_size,
+        #     minPoolSize=self.min_pool_size
+        # )
 
         self._connection = {
             "connection_string": connection_string,
@@ -78,6 +88,8 @@ class MongoDBConnector(BaseConnector):
             "collection": self.collection,
             "connected": True,
             "client": None,  # Would be motor.motor_asyncio.AsyncIOMotorClient()
+            # Credentials are kept separate and not logged
+            "auth_configured": bool(self.username and self.password),
         }
 
     async def disconnect(self) -> None:
