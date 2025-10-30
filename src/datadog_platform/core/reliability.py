@@ -138,7 +138,11 @@ class CircuitBreaker:
 
         # Execute the function
         try:
-            result = await func(*args, **kwargs) if asyncio.iscoroutinefunction(func) else func(*args, **kwargs)
+            result = (
+                await func(*args, **kwargs)
+                if asyncio.iscoroutinefunction(func)
+                else func(*args, **kwargs)
+            )
             self._on_success()
             return result
         except Exception as e:
@@ -182,9 +186,7 @@ class CircuitBreaker:
                 self.total_successes / self.total_calls if self.total_calls > 0 else 0.0
             ),
             "last_failure_time": (
-                datetime.fromtimestamp(self.last_failure_time)
-                if self.last_failure_time
-                else None
+                datetime.fromtimestamp(self.last_failure_time) if self.last_failure_time else None
             ),
         }
 
@@ -271,9 +273,7 @@ class RetryPolicy:
 
         return delay
 
-    async def execute(
-        self, func: Callable[..., T], *args: Any, **kwargs: Any
-    ) -> T:
+    async def execute(self, func: Callable[..., T], *args: Any, **kwargs: Any) -> T:
         """
         Execute a function with retry logic.
 
@@ -299,7 +299,7 @@ class RetryPolicy:
                 return result
             except self.config.retryable_exceptions as e:
                 last_exception = e
-                
+
                 if attempt < self.config.max_attempts - 1:
                     delay = self._calculate_delay(attempt)
                     logger.warning(
@@ -309,8 +309,7 @@ class RetryPolicy:
                     await asyncio.sleep(delay)
                 else:
                     logger.error(
-                        f"All {self.config.max_attempts} retry attempts failed. "
-                        f"Last error: {e}"
+                        f"All {self.config.max_attempts} retry attempts failed. " f"Last error: {e}"
                     )
 
         # If we get here, all attempts failed

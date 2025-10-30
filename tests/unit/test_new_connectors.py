@@ -13,9 +13,7 @@ class TestNoSQLConnectors:
     @pytest.mark.asyncio
     async def test_mongodb_connector_creation(self) -> None:
         """Test creating MongoDB connector."""
-        connector = ConnectorFactory.create_connector(
-            ConnectorType.MONGODB, {"database": "testdb"}
-        )
+        connector = ConnectorFactory.create_connector(ConnectorType.MONGODB, {"database": "testdb"})
         assert connector is not None
         assert connector.database == "testdb"
 
@@ -35,9 +33,7 @@ class TestNoSQLConnectors:
     @pytest.mark.asyncio
     async def test_redis_connector_creation(self) -> None:
         """Test creating Redis connector."""
-        connector = ConnectorFactory.create_connector(
-            ConnectorType.REDIS, {"host": "localhost"}
-        )
+        connector = ConnectorFactory.create_connector(ConnectorType.REDIS, {"host": "localhost"})
         assert connector is not None
         assert connector.host == "localhost"
 
@@ -83,9 +79,7 @@ class TestCloudStorageConnectors:
     @pytest.mark.asyncio
     async def test_s3_connector_creation(self) -> None:
         """Test creating S3 connector."""
-        connector = ConnectorFactory.create_connector(
-            ConnectorType.S3, {"bucket": "my-bucket"}
-        )
+        connector = ConnectorFactory.create_connector(ConnectorType.S3, {"bucket": "my-bucket"})
         assert connector is not None
         assert connector.bucket == "my-bucket"
 
@@ -105,9 +99,7 @@ class TestCloudStorageConnectors:
     @pytest.mark.asyncio
     async def test_gcs_connector_creation(self) -> None:
         """Test creating GCS connector."""
-        connector = ConnectorFactory.create_connector(
-            ConnectorType.GCS, {"bucket": "my-bucket"}
-        )
+        connector = ConnectorFactory.create_connector(ConnectorType.GCS, {"bucket": "my-bucket"})
         assert connector is not None
         assert connector.bucket == "my-bucket"
 
@@ -142,9 +134,7 @@ class TestCloudStorageConnectors:
             AzureBlobConnector,
         )
 
-        connector = AzureBlobConnector(
-            {"account_name": "myaccount", "container": "mycontainer"}
-        )
+        connector = AzureBlobConnector({"account_name": "myaccount", "container": "mycontainer"})
         await connector.connect()
         assert connector._connection is not None
         assert connector._connection["connected"] is True
@@ -181,9 +171,7 @@ class TestMessageQueueConnectors:
     @pytest.mark.asyncio
     async def test_rabbitmq_connector_creation(self) -> None:
         """Test creating RabbitMQ connector."""
-        connector = ConnectorFactory.create_connector(
-            ConnectorType.RABBITMQ, {"host": "localhost"}
-        )
+        connector = ConnectorFactory.create_connector(ConnectorType.RABBITMQ, {"host": "localhost"})
         assert connector is not None
         assert connector.host == "localhost"
 

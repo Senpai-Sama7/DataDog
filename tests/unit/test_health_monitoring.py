@@ -86,9 +86,7 @@ class TestConnectorHealth:
 
     def test_connector_health_initialization(self) -> None:
         """Test connector health initialization."""
-        health = ConnectorHealth(
-            connector_name="test", connector_type=ConnectorType.REDIS
-        )
+        health = ConnectorHealth(connector_name="test", connector_type=ConnectorType.REDIS)
 
         assert health.connector_name == "test"
         assert health.connector_type == ConnectorType.REDIS
@@ -98,9 +96,7 @@ class TestConnectorHealth:
 
     def test_update_from_successful_result(self) -> None:
         """Test updating health from successful check."""
-        health = ConnectorHealth(
-            connector_name="test", connector_type=ConnectorType.S3
-        )
+        health = ConnectorHealth(connector_name="test", connector_type=ConnectorType.S3)
 
         result = HealthCheckResult(
             connector_name="test",
@@ -123,9 +119,7 @@ class TestConnectorHealth:
 
     def test_update_from_failed_result(self) -> None:
         """Test updating health from failed check."""
-        health = ConnectorHealth(
-            connector_name="test", connector_type=ConnectorType.KAFKA
-        )
+        health = ConnectorHealth(connector_name="test", connector_type=ConnectorType.KAFKA)
 
         result = HealthCheckResult(
             connector_name="test",
@@ -148,9 +142,7 @@ class TestConnectorHealth:
 
     def test_consecutive_failures_mark_unhealthy(self) -> None:
         """Test that consecutive failures mark connector as unhealthy."""
-        health = ConnectorHealth(
-            connector_name="test", connector_type=ConnectorType.MYSQL
-        )
+        health = ConnectorHealth(connector_name="test", connector_type=ConnectorType.MYSQL)
 
         # Simulate 5 consecutive failures
         for i in range(5):
@@ -170,9 +162,7 @@ class TestConnectorHealth:
 
     def test_health_recovery_resets_consecutive_failures(self) -> None:
         """Test that successful check resets consecutive failures."""
-        health = ConnectorHealth(
-            connector_name="test", connector_type=ConnectorType.CASSANDRA
-        )
+        health = ConnectorHealth(connector_name="test", connector_type=ConnectorType.CASSANDRA)
 
         # Fail twice
         for _ in range(2):

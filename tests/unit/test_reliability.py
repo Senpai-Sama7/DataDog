@@ -86,9 +86,7 @@ class TestCircuitBreaker:
     @pytest.mark.asyncio
     async def test_circuit_closes_after_successful_calls_in_half_open(self) -> None:
         """Test circuit closes after successful calls in half-open state."""
-        cb = CircuitBreaker(
-            "test", failure_threshold=2, timeout_seconds=0.1, success_threshold=2
-        )
+        cb = CircuitBreaker("test", failure_threshold=2, timeout_seconds=0.1, success_threshold=2)
         call_count = [0]
 
         async def sometimes_failing_func() -> str:
@@ -195,9 +193,7 @@ class TestRetryPolicy:
     @pytest.mark.asyncio
     async def test_retry_respects_retryable_exceptions(self) -> None:
         """Test that retry only retries specified exceptions."""
-        config = RetryConfig(
-            max_attempts=3, initial_delay=0.01, retryable_exceptions=(ValueError,)
-        )
+        config = RetryConfig(max_attempts=3, initial_delay=0.01, retryable_exceptions=(ValueError,))
         policy = RetryPolicy(config)
 
         async def wrong_exception_func() -> None:
@@ -210,9 +206,7 @@ class TestRetryPolicy:
     @pytest.mark.asyncio
     async def test_retry_delay_increases_exponentially(self) -> None:
         """Test that retry delay increases exponentially."""
-        config = RetryConfig(
-            max_attempts=3, initial_delay=0.1, exponential_base=2.0, jitter=False
-        )
+        config = RetryConfig(max_attempts=3, initial_delay=0.1, exponential_base=2.0, jitter=False)
         policy = RetryPolicy(config)
 
         delays = []

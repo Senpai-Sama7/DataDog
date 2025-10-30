@@ -9,7 +9,7 @@ import asyncio
 import time
 from typing import Any, Dict, List, Optional
 from enum import Enum
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from dataclasses import dataclass, field
 import logging
 
@@ -92,7 +92,7 @@ class ConnectorHealth:
             self.consecutive_failures += 1
             self.consecutive_successes = 0
             self.last_error = result.error
-            
+
             # Determine degraded vs unhealthy
             if self.consecutive_failures >= 5:
                 self.current_status = HealthStatus.UNHEALTHY
@@ -207,21 +207,20 @@ class ConnectorHealthMonitor:
                 connector_name=name,
                 connector_type=ConnectorType.CUSTOM,
                 status=HealthStatus.UNKNOWN,
-                timestamp=datetime.now(),
+                timestamp=datetime.now(timezone.utc),
                 latency_ms=0.0,
                 error="Connector not found",
             )
 
         health_metrics = self.health_metrics[name]
         start_time = time.time()
-        
+
         try:
             # Attempt to validate connection
             is_valid = await asyncio.wait_for(
-                connector.validate_connection(),
-                timeout=10.0  # 10 second timeout
+                connector.validate_connection(), timeout=10.0  # 10 second timeout
             )
-            
+
             latency_ms = (time.time() - start_time) * 1000
 
             if is_valid:
@@ -229,7 +228,7 @@ class ConnectorHealthMonitor:
                     connector_name=name,
                     connector_type=health_metrics.connector_type,
                     status=HealthStatus.HEALTHY,
-                    timestamp=datetime.now(),
+                    timestamp=datetime.now(timezone.utc),
                     latency_ms=latency_ms,
                 )
             else:
@@ -237,7 +236,7 @@ class ConnectorHealthMonitor:
                     connector_name=name,
                     connector_type=health_metrics.connector_type,
                     status=HealthStatus.UNHEALTHY,
-                    timestamp=datetime.now(),
+                    timestamp=datetime.now(timezone.utc),
                     latency_ms=latency_ms,
                     error="Connection validation failed",
                 )
@@ -248,7 +247,7 @@ class ConnectorHealthMonitor:
                 connector_name=name,
                 connector_type=health_metrics.connector_type,
                 status=HealthStatus.UNHEALTHY,
-                timestamp=datetime.now(),
+                timestamp=datetime.now(timezone.utc),
                 latency_ms=latency_ms,
                 error="Health check timeout",
             )
@@ -258,7 +257,7 @@ class ConnectorHealthMonitor:
                 connector_name=name,
                 connector_type=health_metrics.connector_type,
                 status=HealthStatus.UNHEALTHY,
-                timestamp=datetime.now(),
+                timestamp=datetime.now(timezone.utc),
                 latency_ms=latency_ms,
                 error=str(e),
             )
@@ -271,15 +270,12 @@ class ConnectorHealthMonitor:
             Dictionary mapping connector names to check results
         """
         results = {}
-        
+
         # Run checks concurrently
-        tasks = {
-            name: self.check_connector_health(name)
-            for name in self.connectors.keys()
-        }
-        
+        tasks = {name: self.check_connector_health(name) for name in self.connectors.keys()}
+
         completed = await asyncio.gather(*tasks.values(), return_exceptions=True)
-        
+
         for name, result in zip(tasks.keys(), completed):
             if isinstance(result, Exception):
                 logger.error(f"Health check failed for '{name}': {result}")
@@ -287,7 +283,7 @@ class ConnectorHealthMonitor:
                     connector_name=name,
                     connector_type=self.health_metrics[name].connector_type,
                     status=HealthStatus.UNHEALTHY,
-                    timestamp=datetime.now(),
+                    timestamp=datetime.now(timezone.utc),
                     latency_ms=0.0,
                     error=str(result),
                 )
@@ -301,7 +297,7 @@ class ConnectorHealthMonitor:
     async def _monitoring_loop(self) -> None:
         """Background monitoring loop."""
         logger.info("Starting connector health monitoring loop")
-        
+
         while self.is_running:
             try:
                 await self.check_all_connectors()
@@ -337,7 +333,7 @@ class ConnectorHealthMonitor:
             except asyncio.CancelledError:
                 pass
             self.monitoring_task = None
-        
+
         logger.info("Stopped connector health monitoring")
 
     def get_health_status(self, name: str) -> Optional[ConnectorHealth]:
