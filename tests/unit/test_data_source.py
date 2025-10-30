@@ -118,6 +118,6 @@ class TestDataSource:
             query="SELECT * FROM users WHERE active = true",
         )
 
-        assert source.schema is not None
+        assert source.schema_config is not None
         assert source.query is not None
         assert "SELECT" in source.query
