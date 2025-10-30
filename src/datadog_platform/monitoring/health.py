@@ -331,6 +331,7 @@ class ConnectorHealthMonitor:
             try:
                 await self.monitoring_task
             except asyncio.CancelledError:
+                # Expected when cancelling the monitoring task; safe to ignore.
                 pass
             self.monitoring_task = None
 
