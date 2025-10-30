@@ -1,0 +1,65 @@
+"""
+Example pipeline configuration demonstrating basic ETL workflow.
+"""
+
+name: "example_etl_pipeline"
+description: "Example ETL pipeline for data processing"
+processing_mode: "batch"
+
+sources:
+  - name: "postgres_source"
+    connector_type: "postgresql"
+    connection_config:
+      host: "localhost"
+      port: 5432
+      database: "analytics"
+      username: "etl_user"
+      password: "${DB_PASSWORD}"
+      table: "raw_events"
+    schema:
+      columns:
+        - name: "event_id"
+          type: "integer"
+        - name: "user_id"
+          type: "integer"
+        - name: "event_type"
+          type: "string"
+        - name: "timestamp"
+          type: "timestamp"
+
+transformations:
+  - name: "filter_valid_events"
+    function_name: "filter_nulls"
+    parameters:
+      columns: ["event_id", "user_id", "event_type"]
+    order: 1
+  
+  - name: "deduplicate_events"
+    function_name: "deduplicate"
+    parameters:
+      subset: ["event_id"]
+    order: 2
+  
+  - name: "aggregate_by_user"
+    function_name: "aggregate"
+    parameters:
+      group_by: ["user_id"]
+      aggregations:
+        event_count: "count"
+        first_event: "min(timestamp)"
+        last_event: "max(timestamp)"
+    order: 3
+
+schedule: "0 */6 * * *"  # Run every 6 hours
+enabled: true
+max_parallel_tasks: 4
+
+metadata:
+  owner: "data_team"
+  project: "analytics"
+  environment: "production"
+
+tags:
+  team: "data-engineering"
+  priority: "high"
+  cost_center: "analytics"
