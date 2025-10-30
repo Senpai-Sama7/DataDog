@@ -279,7 +279,7 @@ class ConnectorHealthMonitor:
         for name, result in zip(tasks.keys(), completed):
             if isinstance(result, Exception):
                 logger.error(f"Health check failed for '{name}': {result}")
-                results[name] = HealthCheckResult(
+                result = HealthCheckResult(
                     connector_name=name,
                     connector_type=self.health_metrics[name].connector_type,
                     status=HealthStatus.UNHEALTHY,
@@ -287,10 +287,10 @@ class ConnectorHealthMonitor:
                     latency_ms=0.0,
                     error=str(result),
                 )
-            else:
-                results[name] = result
-                # Update health metrics
-                self.health_metrics[name].update_from_result(result)
+    
+            results[name] = result
+            # Update health metrics for both success and failure cases
+            self.health_metrics[name].update_from_result(result)
 
         return results
 
