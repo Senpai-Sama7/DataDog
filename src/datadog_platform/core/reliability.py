@@ -6,12 +6,12 @@ and health monitoring for robust and resilient data pipeline operations.
 """
 
 import asyncio
-import time
-from enum import Enum
-from typing import Any, Callable, Optional, TypeVar, Dict
-from datetime import datetime
-from functools import wraps
 import logging
+import time
+from datetime import datetime
+from enum import Enum
+from functools import wraps
+from typing import Any, Callable, Dict, Optional, TypeVar
 
 logger = logging.getLogger(__name__)
 
@@ -147,6 +147,16 @@ class CircuitBreaker:
             return result
         except Exception as e:
             self._on_failure()
+            # Preserve exception context for better debugging and forensics
+            logger.error(
+                f"Circuit breaker '{self.name}' caught exception: {type(e).__name__}: {str(e)}",
+                exc_info=True,
+                extra={
+                    "circuit_breaker": self.name,
+                    "state": self.state.value,
+                    "failure_count": self.failure_count,
+                },
+            )
             raise
 
     def _on_success(self) -> None:

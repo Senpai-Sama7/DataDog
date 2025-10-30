@@ -6,14 +6,18 @@ all data source connectors with automatic recovery detection.
 """
 
 import asyncio
-import time
-from typing import Any, Dict, List, Optional
-from enum import Enum
-from datetime import datetime, timezone
-from dataclasses import dataclass, field
 import logging
+import time
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+from enum import Enum
+from typing import Any, Dict, List, Optional
 
 from datadog_platform.core.base import BaseConnector, ConnectorType
+from datadog_platform.utils.security import (
+    create_audit_log_entry,
+    sanitize_exception_message,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -178,7 +182,19 @@ class ConnectorHealthMonitor:
             connector_name=name,
             connector_type=connector_type,
         )
-        logger.info(f"Registered connector '{name}' for health monitoring")
+
+        # Structured audit log for connector registration
+        audit_entry = create_audit_log_entry(
+            action="register_connector",
+            resource_type="connector",
+            resource_name=name,
+            outcome="success",
+            metadata={"connector_type": connector_type.value},
+        )
+        logger.info(
+            "Connector registered for health monitoring",
+            extra=audit_entry,
+        )
 
     def unregister_connector(self, name: str) -> None:
         """
@@ -189,7 +205,31 @@ class ConnectorHealthMonitor:
         """
         if name in self.connectors:
             del self.connectors[name]
-            logger.info(f"Unregistered connector '{name}' from health monitoring")
+
+            # Structured audit log for connector unregistration
+            audit_entry = create_audit_log_entry(
+                action="unregister_connector",
+                resource_type="connector",
+                resource_name=name,
+                outcome="success",
+            )
+            logger.info(
+                "Connector unregistered from health monitoring",
+                extra=audit_entry,
+            )
+        else:
+            # Log failed attempt to unregister non-existent connector
+            audit_entry = create_audit_log_entry(
+                action="unregister_connector",
+                resource_type="connector",
+                resource_name=name,
+                outcome="failure",
+                metadata={"reason": "connector_not_found"},
+            )
+            logger.warning(
+                "Attempted to unregister non-existent connector",
+                extra=audit_entry,
+            )
 
     async def check_connector_health(self, name: str) -> HealthCheckResult:
         """
@@ -243,23 +283,40 @@ class ConnectorHealthMonitor:
 
         except asyncio.TimeoutError:
             latency_ms = (time.time() - start_time) * 1000
+            error_msg = "Health check timeout"
             return HealthCheckResult(
                 connector_name=name,
                 connector_type=health_metrics.connector_type,
                 status=HealthStatus.UNHEALTHY,
                 timestamp=datetime.now(timezone.utc),
                 latency_ms=latency_ms,
-                error="Health check timeout",
+                error=error_msg,
             )
         except Exception as e:
             latency_ms = (time.time() - start_time) * 1000
+
+            # Sanitize exception message to avoid leaking sensitive data
+            sanitized_error = sanitize_exception_message(e)
+
+            # Log with structured context for debugging (full details with exc_info)
+            logger.error(
+                "Health check failed with exception",
+                extra={
+                    "connector_name": name,
+                    "connector_type": health_metrics.connector_type.value,
+                    "exception_type": type(e).__name__,
+                    "latency_ms": latency_ms,
+                },
+                exc_info=True,  # Include full traceback in logs for debugging
+            )
+
             return HealthCheckResult(
                 connector_name=name,
                 connector_type=health_metrics.connector_type,
                 status=HealthStatus.UNHEALTHY,
                 timestamp=datetime.now(timezone.utc),
                 latency_ms=latency_ms,
-                error=str(e),
+                error=sanitized_error,  # Use sanitized error for result
             )
 
     async def check_all_connectors(self) -> Dict[str, HealthCheckResult]:
@@ -276,18 +333,28 @@ class ConnectorHealthMonitor:
 
         completed = await asyncio.gather(*tasks.values(), return_exceptions=True)
 
-        for name, result in zip(tasks.keys(), completed):
+        for name, result in zip(tasks.keys(), completed, strict=True):
             if isinstance(result, Exception):
-                logger.error(f"Health check failed for '{name}': {result}")
+                # Log with structured context
+                logger.error(
+                    "Health check task failed with exception",
+                    extra={
+                        "connector_name": name,
+                        "exception_type": type(result).__name__,
+                    },
+                    exc_info=result,
+                )
+
+                # Create failure result with sanitized error
                 result = HealthCheckResult(
                     connector_name=name,
                     connector_type=self.health_metrics[name].connector_type,
                     status=HealthStatus.UNHEALTHY,
                     timestamp=datetime.now(timezone.utc),
                     latency_ms=0.0,
-                    error=str(result),
+                    error=sanitize_exception_message(result),
                 )
-    
+
             results[name] = result
             # Update health metrics for both success and failure cases
             self.health_metrics[name].update_from_result(result)
@@ -296,7 +363,13 @@ class ConnectorHealthMonitor:
 
     async def _monitoring_loop(self) -> None:
         """Background monitoring loop."""
-        logger.info("Starting connector health monitoring loop")
+        logger.info(
+            "Starting connector health monitoring loop",
+            extra={
+                "check_interval_seconds": self.check_interval_seconds,
+                "registered_connectors": len(self.connectors),
+            },
+        )
 
         while self.is_running:
             try:
@@ -305,7 +378,15 @@ class ConnectorHealthMonitor:
             except asyncio.CancelledError:
                 break
             except Exception as e:
-                logger.error(f"Error in monitoring loop: {e}")
+                # Structured error logging with sanitized message
+                logger.error(
+                    "Error in monitoring loop",
+                    extra={
+                        "exception_type": type(e).__name__,
+                        "sanitized_error": sanitize_exception_message(e),
+                    },
+                    exc_info=True,  # Full traceback for debugging
+                )
                 await asyncio.sleep(self.check_interval_seconds)
 
         logger.info("Stopped connector health monitoring loop")

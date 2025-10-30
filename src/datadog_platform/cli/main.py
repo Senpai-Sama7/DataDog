@@ -2,17 +2,17 @@
 Command-line interface for DataDog platform.
 """
 
-import click
 import json
-import yaml
 from pathlib import Path
 from typing import Optional
 
+import click
+import yaml
+
 from datadog_platform import __version__
-from datadog_platform.core.pipeline import Pipeline
-from datadog_platform.core.data_source import DataSource
-from datadog_platform.core.transformation import Transformation
 from datadog_platform.core.executor import LocalExecutor
+from datadog_platform.core.pipeline import Pipeline
+from datadog_platform.utils.security import sanitize_exception_message
 
 
 @click.group()
@@ -60,7 +60,7 @@ def pipeline_create(config: str, validate_only: bool) -> None:
         pipeline_obj = Pipeline(**pipeline_config)
 
         if validate_only:
-            click.echo(f"✓ Configuration is valid")
+            click.echo("✓ Configuration is valid")
             return
 
         # In production, would save to metadata store
@@ -70,8 +70,10 @@ def pipeline_create(config: str, validate_only: bool) -> None:
         click.echo(f"  Transformations: {len(pipeline_obj.transformations)}")
 
     except Exception as e:
-        click.echo(f"✗ Error: {e}", err=True)
-        raise click.Abort()
+        # Sanitize error message to prevent sensitive data exposure
+        safe_error = sanitize_exception_message(e)
+        click.echo(f"✗ Error: {safe_error}", err=True)
+        raise click.Abort() from e
 
 
 @pipeline.command("list")
@@ -112,14 +114,13 @@ def pipeline_run(pipeline_name: str, params: Optional[str], async_mode: bool) ->
     """
     Execute a pipeline.
     """
-    parameters = {}
     if params:
-        parameters = json.loads(params)
+        _parameters = json.loads(params)  # noqa: F841  # Placeholder for future use
 
     click.echo(f"▶ Running pipeline: {pipeline_name}")
 
     # Placeholder - would load pipeline and execute
-    executor = LocalExecutor()
+    _executor = LocalExecutor()  # noqa: F841  # Placeholder for future use
 
     if async_mode:
         click.echo("✓ Pipeline execution started (async)")
@@ -181,6 +182,7 @@ def connector_test(type: str, config: str) -> None:
     Test a connector configuration.
     """
     import asyncio
+
     from datadog_platform.connectors.factory import ConnectorFactory
     from datadog_platform.core.base import ConnectorType
 
@@ -206,8 +208,10 @@ def connector_test(type: str, config: str) -> None:
                     click.echo("✗ Connection failed", err=True)
 
         except Exception as e:
-            click.echo(f"✗ Error: {e}", err=True)
-            raise click.Abort()
+            # Sanitize error message to prevent sensitive data exposure
+            safe_error = sanitize_exception_message(e)
+            click.echo(f"✗ Error: {safe_error}", err=True)
+            raise click.Abort() from e
 
     asyncio.run(test_connection())
 

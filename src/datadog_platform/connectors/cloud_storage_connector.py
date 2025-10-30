@@ -6,8 +6,8 @@ comprehensive error handling for cloud storage services.
 """
 
 import asyncio
-from typing import Any, Dict, List, Optional
 from enum import Enum
+from typing import Any, Dict, List, Optional
 
 from datadog_platform.core.base import BaseConnector
 
@@ -51,13 +51,21 @@ class S3Connector(BaseConnector):
                 - encryption: Server-side encryption type (optional)
                 - kms_key_id: KMS key ID for SSE-KMS (optional)
                 - storage_class: Default storage class
+
+        Note:
+            Credentials should be kept secure and never logged. When using
+            access keys, prefer IAM roles or temporary credentials. In production,
+            use AWS Secrets Manager or similar for credential management.
         """
         super().__init__(config)
         self.bucket = config.get("bucket")
         self.region = config.get("region", "us-east-1")
+
+        # Store credentials securely - these should NEVER be logged
         self.access_key_id = config.get("access_key_id")
         self.secret_access_key = config.get("secret_access_key")
         self.session_token = config.get("session_token")
+
         self.endpoint_url = config.get("endpoint_url")
         self.use_ssl = config.get("use_ssl", True)
         self.encryption = config.get("encryption")
