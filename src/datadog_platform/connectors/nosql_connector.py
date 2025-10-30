@@ -7,7 +7,6 @@ comprehensive error handling for NoSQL data sources.
 
 import asyncio
 from typing import Any, Dict, List, Optional
-from abc import abstractmethod
 
 from datadog_platform.core.base import BaseConnector
 
