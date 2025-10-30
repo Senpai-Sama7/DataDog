@@ -334,7 +334,9 @@ class CassandraConnector(BaseConnector):
         if not self.keyspace:
             raise ValueError("Keyspace is required for Cassandra connector")
 
-        if not isinstance(self.hosts, list):
+        if isinstance(self.hosts, str):
+            self.hosts = [h.strip() for h in self.hosts.split(",")]
+        elif not isinstance(self.hosts, list):
             self.hosts = [self.hosts]
 
     async def connect(self) -> None:
