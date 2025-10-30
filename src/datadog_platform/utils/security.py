@@ -111,7 +111,7 @@ def sanitize_exception_message(exception: Exception, redaction_text: str = "***R
     url_pattern = r'(\w+://)[^:]+:[^@]+@'
     message = re.sub(url_pattern, r'\1' + redaction_text + '@', message)
 
-    # Remove potential tokens and keys (sequences of alphanumeric chars > 20 chars)
+    # Remove potential tokens and keys (sequences of alphanumeric chars >= 24 chars)
     token_pattern = r'\b[A-Za-z0-9_-]{24,}\b'
     message = re.sub(token_pattern, redaction_text, message)
 

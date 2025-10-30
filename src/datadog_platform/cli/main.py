@@ -10,7 +10,6 @@ import click
 import yaml
 
 from datadog_platform import __version__
-from datadog_platform.core.executor import LocalExecutor
 from datadog_platform.core.pipeline import Pipeline
 from datadog_platform.utils.security import sanitize_exception_message
 
@@ -114,13 +113,14 @@ def pipeline_run(pipeline_name: str, params: Optional[str], async_mode: bool) ->
     """
     Execute a pipeline.
     """
+    # Note: params and executor are placeholders for future implementation
     if params:
-        _parameters = json.loads(params)  # noqa: F841  # Placeholder for future use
+        # TODO: Parse and use parameters in actual pipeline execution
+        pass
 
     click.echo(f"▶ Running pipeline: {pipeline_name}")
 
-    # Placeholder - would load pipeline and execute
-    _executor = LocalExecutor()  # noqa: F841  # Placeholder for future use
+    # TODO: Implement actual pipeline execution with LocalExecutor
 
     if async_mode:
         click.echo("✓ Pipeline execution started (async)")
