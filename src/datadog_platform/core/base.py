@@ -44,12 +44,26 @@ class DataFormat(str, Enum):
 class ConnectorType(str, Enum):
     """Types of data source connectors."""
 
+    # SQL databases
     POSTGRESQL = "postgresql"
     MYSQL = "mysql"
+
+    # NoSQL databases
     MONGODB = "mongodb"
     REDIS = "redis"
+    CASSANDRA = "cassandra"
+
+    # Message queues
     KAFKA = "kafka"
+    RABBITMQ = "rabbitmq"
+    PULSAR = "pulsar"
+
+    # Cloud storage
     S3 = "s3"
+    GCS = "gcs"
+    AZURE_BLOB = "azure_blob"
+
+    # Other
     REST_API = "rest_api"
     FILE_SYSTEM = "file_system"
     CUSTOM = "custom"

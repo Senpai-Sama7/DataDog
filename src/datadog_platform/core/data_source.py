@@ -57,12 +57,22 @@ class DataSource(BaseConfig):
             list: Required field names
         """
         required_map = {
+            # SQL databases
             ConnectorType.POSTGRESQL: ["host", "database"],
             ConnectorType.MYSQL: ["host", "database"],
-            ConnectorType.MONGODB: ["host", "database"],
+            # NoSQL databases
+            ConnectorType.MONGODB: ["database"],
             ConnectorType.REDIS: ["host"],
-            ConnectorType.KAFKA: ["bootstrap_servers", "topic"],
+            ConnectorType.CASSANDRA: ["keyspace"],
+            # Message queues
+            ConnectorType.KAFKA: ["bootstrap_servers"],
+            ConnectorType.RABBITMQ: ["host"],
+            ConnectorType.PULSAR: ["service_url"],
+            # Cloud storage
             ConnectorType.S3: ["bucket"],
+            ConnectorType.GCS: ["bucket"],
+            ConnectorType.AZURE_BLOB: ["account_name", "container"],
+            # Other
             ConnectorType.REST_API: ["url"],
             ConnectorType.FILE_SYSTEM: ["path"],
             ConnectorType.CUSTOM: [],

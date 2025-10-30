@@ -70,9 +70,42 @@ def _register_builtin_connectors() -> None:
     from datadog_platform.connectors.sql_connector import SQLConnector
     from datadog_platform.connectors.file_connector import FileConnector
     from datadog_platform.connectors.rest_connector import RESTConnector
+    from datadog_platform.connectors.nosql_connector import (
+        MongoDBConnector,
+        RedisConnector,
+        CassandraConnector,
+    )
+    from datadog_platform.connectors.cloud_storage_connector import (
+        S3Connector,
+        GCSConnector,
+        AzureBlobConnector,
+    )
+    from datadog_platform.connectors.message_queue_connector import (
+        KafkaConnector,
+        RabbitMQConnector,
+        PulsarConnector,
+    )
 
+    # SQL connectors
     ConnectorFactory.register_connector(ConnectorType.POSTGRESQL, SQLConnector)
     ConnectorFactory.register_connector(ConnectorType.MYSQL, SQLConnector)
+
+    # NoSQL connectors
+    ConnectorFactory.register_connector(ConnectorType.MONGODB, MongoDBConnector)
+    ConnectorFactory.register_connector(ConnectorType.REDIS, RedisConnector)
+    ConnectorFactory.register_connector(ConnectorType.CASSANDRA, CassandraConnector)
+
+    # Cloud storage connectors
+    ConnectorFactory.register_connector(ConnectorType.S3, S3Connector)
+    ConnectorFactory.register_connector(ConnectorType.GCS, GCSConnector)
+    ConnectorFactory.register_connector(ConnectorType.AZURE_BLOB, AzureBlobConnector)
+
+    # Message queue connectors
+    ConnectorFactory.register_connector(ConnectorType.KAFKA, KafkaConnector)
+    ConnectorFactory.register_connector(ConnectorType.RABBITMQ, RabbitMQConnector)
+    ConnectorFactory.register_connector(ConnectorType.PULSAR, PulsarConnector)
+
+    # File and REST connectors
     ConnectorFactory.register_connector(ConnectorType.FILE_SYSTEM, FileConnector)
     ConnectorFactory.register_connector(ConnectorType.REST_API, RESTConnector)
 
