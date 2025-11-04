@@ -3,12 +3,11 @@ Unit tests for Pipeline class.
 """
 
 import pytest
-from datetime import datetime
 
-from datadog_platform.core.pipeline import Pipeline, Task
-from datadog_platform.core.data_source import DataSource
-from datadog_platform.core.transformation import Transformation
 from datadog_platform.core.base import ConnectorType, ExecutionStatus
+from datadog_platform.core.data_source import DataSource
+from datadog_platform.core.pipeline import Pipeline, Task
+from datadog_platform.core.transformation import Transformation
 
 
 class TestPipeline:

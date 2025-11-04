@@ -1,8 +1,8 @@
 """Core module initialization."""
 
 from datadog_platform.core.base import (
-    BaseConnector,
     BaseConfig,
+    BaseConnector,
     BaseExecutor,
     BaseTransformer,
     ConnectorType,

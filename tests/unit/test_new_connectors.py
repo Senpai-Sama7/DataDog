@@ -3,6 +3,7 @@ Unit tests for NoSQL, cloud storage, and message queue connectors.
 """
 
 import pytest
+
 from datadog_platform.connectors.factory import ConnectorFactory
 from datadog_platform.core.base import ConnectorType
 

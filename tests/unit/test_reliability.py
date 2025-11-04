@@ -2,16 +2,18 @@
 Unit tests for reliability patterns (circuit breaker and retry).
 """
 
-import pytest
 import asyncio
+
+import pytest
+
 from datadog_platform.core.reliability import (
     CircuitBreaker,
-    CircuitState,
     CircuitBreakerOpenError,
+    CircuitState,
     RetryConfig,
     RetryPolicy,
-    with_retry,
     with_circuit_breaker,
+    with_retry,
 )
 
 

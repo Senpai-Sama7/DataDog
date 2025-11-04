@@ -2,17 +2,19 @@
 Unit tests for connector health monitoring.
 """
 
-import pytest
 import asyncio
 from datetime import datetime
+from typing import Any, Dict, Optional
+
+import pytest
+
+from datadog_platform.core.base import BaseConnector, ConnectorType
 from datadog_platform.monitoring.health import (
-    HealthStatus,
-    HealthCheckResult,
     ConnectorHealth,
     ConnectorHealthMonitor,
+    HealthCheckResult,
+    HealthStatus,
 )
-from datadog_platform.core.base import BaseConnector, ConnectorType
-from typing import Any, Dict, Optional
 
 
 class MockConnector(BaseConnector):

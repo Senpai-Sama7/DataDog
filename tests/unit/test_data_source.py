@@ -2,10 +2,8 @@
 Unit tests for data sources.
 """
 
-import pytest
-
-from datadog_platform.core.data_source import DataSource
 from datadog_platform.core.base import ConnectorType
+from datadog_platform.core.data_source import DataSource
 
 
 class TestDataSource:

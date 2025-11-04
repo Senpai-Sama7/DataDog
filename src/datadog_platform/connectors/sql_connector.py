@@ -2,8 +2,8 @@
 SQL database connector implementation.
 """
 
-from typing import Any, Dict, Optional
 import asyncio
+from typing import Any, Dict, Optional
 
 from datadog_platform.core.base import BaseConnector
 

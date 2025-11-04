@@ -2,10 +2,10 @@
 File system connector implementation.
 """
 
-from typing import Any, Dict, Optional
 import asyncio
 import json
 from pathlib import Path
+from typing import Any, Dict, Optional
 
 from datadog_platform.core.base import BaseConnector, DataFormat
 

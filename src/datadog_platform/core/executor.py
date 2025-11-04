@@ -2,9 +2,8 @@
 Executor classes for running pipelines and tasks.
 """
 
-from typing import Any, Dict, Optional
-import asyncio
 from datetime import datetime
+from typing import Any, Dict
 
 from datadog_platform.core.base import (
     BaseExecutor,
@@ -81,10 +80,6 @@ class LocalExecutor(BaseExecutor):
             for task_id in execution_order:
                 # In a real implementation, this would execute tasks in parallel
                 # based on dependencies
-                task_context = ExecutionContext(
-                    pipeline_id=context.pipeline_id,
-                    execution_id=f"{context.execution_id}_{task_id}",
-                )
 
                 # Execute task (placeholder)
                 results[task_id] = {"status": "completed"}

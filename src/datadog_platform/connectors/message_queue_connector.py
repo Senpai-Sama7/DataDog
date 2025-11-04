@@ -91,6 +91,7 @@ class KafkaConnector(BaseConnector):
         # Warn about insecure configuration in production
         if self.security_protocol == "PLAINTEXT" and (self.sasl_username or self.sasl_password):
             import logging
+
             logger = logging.getLogger(__name__)
             logger.warning(
                 "Kafka connector configured with PLAINTEXT protocol but credentials provided. "

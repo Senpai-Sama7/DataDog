@@ -67,27 +67,28 @@ class ConnectorFactory:
 # Auto-register built-in connectors
 def _register_builtin_connectors() -> None:
     """Register built-in connector types."""
-    from datadog_platform.connectors.sql_connector import SQLConnector
-    from datadog_platform.connectors.file_connector import FileConnector
-    from datadog_platform.connectors.rest_connector import RESTConnector
-    from datadog_platform.connectors.nosql_connector import (
-        MongoDBConnector,
-        RedisConnector,
-        CassandraConnector,
-    )
     from datadog_platform.connectors.cloud_storage_connector import (
-        S3Connector,
-        GCSConnector,
         AzureBlobConnector,
+        GCSConnector,
+        S3Connector,
     )
+    from datadog_platform.connectors.file_connector import FileConnector
     from datadog_platform.connectors.message_queue_connector import (
         KafkaConnector,
-        RabbitMQConnector,
         PulsarConnector,
+        RabbitMQConnector,
+    )
+    from datadog_platform.connectors.nosql_connector import (
+        CassandraConnector,
+        MongoDBConnector,
+        RedisConnector,
     )
 
     # SQL connectors
     from datadog_platform.connectors.postgresql_connector import PostgreSQLConnector
+    from datadog_platform.connectors.rest_connector import RESTConnector
+    from datadog_platform.connectors.sql_connector import SQLConnector
+
     ConnectorFactory.register_connector(ConnectorType.POSTGRESQL, PostgreSQLConnector)
     ConnectorFactory.register_connector(ConnectorType.MYSQL, SQLConnector)
 

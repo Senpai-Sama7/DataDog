@@ -3,9 +3,9 @@ Core abstractions and base classes for the DataDog platform.
 """
 
 from abc import ABC, abstractmethod
-from enum import Enum
-from typing import Any, Dict, List, Optional
 from datetime import datetime, timezone
+from enum import Enum
+from typing import Any, Dict, Optional
 from uuid import uuid4
 
 from pydantic import BaseModel, ConfigDict, Field

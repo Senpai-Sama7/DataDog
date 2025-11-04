@@ -2,8 +2,8 @@
 Pipeline class for orchestrating data workflows.
 """
 
-from typing import Any, Dict, List, Optional
 from datetime import datetime, timezone
+from typing import Any, Dict, List, Optional
 from uuid import uuid4
 
 from pydantic import ConfigDict, Field

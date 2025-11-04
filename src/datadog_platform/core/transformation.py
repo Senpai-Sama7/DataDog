@@ -2,7 +2,7 @@
 Transformation class for data transformations in pipelines.
 """
 
-from typing import Any, Callable, Dict, Optional
+from typing import Any, Dict, Optional
 from uuid import uuid4
 
 from pydantic import ConfigDict, Field

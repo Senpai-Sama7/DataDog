@@ -42,7 +42,6 @@ class TestConnectorFactory:
         assert connector is not None
         assert isinstance(connector, PostgreSQLConnector)
 
-
     def test_create_file_connector(self) -> None:
         """Test creating file connector."""
         connector = ConnectorFactory.create_connector(

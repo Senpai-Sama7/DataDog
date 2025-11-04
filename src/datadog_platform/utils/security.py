@@ -46,9 +46,11 @@ def redact_sensitive_data(data: Any, redaction_text: str = "***REDACTED***") -> 
     """
     if isinstance(data, dict):
         return {
-            key: redaction_text
-            if any(sensitive in key.lower() for sensitive in SENSITIVE_FIELDS)
-            else redact_sensitive_data(value, redaction_text)
+            key: (
+                redaction_text
+                if any(sensitive in key.lower() for sensitive in SENSITIVE_FIELDS)
+                else redact_sensitive_data(value, redaction_text)
+            )
             for key, value in data.items()
         }
     elif isinstance(data, list):
@@ -108,11 +110,11 @@ def sanitize_exception_message(exception: Exception, redaction_text: str = "***R
     message = str(exception)
 
     # Remove URLs with credentials
-    url_pattern = r'(\w+://)[^:]+:[^@]+@'
-    message = re.sub(url_pattern, r'\1' + redaction_text + '@', message)
+    url_pattern = r"(\w+://)[^:]+:[^@]+@"
+    message = re.sub(url_pattern, r"\1" + redaction_text + "@", message)
 
     # Remove potential tokens and keys (sequences of alphanumeric chars >= 24 chars)
-    token_pattern = r'\b[A-Za-z0-9_-]{24,}\b'
+    token_pattern = r"\b[A-Za-z0-9_-]{24,}\b"
     message = re.sub(token_pattern, redaction_text, message)
 
     return message

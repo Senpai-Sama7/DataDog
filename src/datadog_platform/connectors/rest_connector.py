@@ -2,8 +2,8 @@
 REST API connector implementation.
 """
 
-from typing import Any, Dict, Optional
 import asyncio
+from typing import Any, Dict, Optional
 
 from datadog_platform.core.base import BaseConnector
 
@@ -78,8 +78,6 @@ class RESTConnector(BaseConnector):
         if not self._connection:
             raise RuntimeError("Not connected")
 
-        url = self._build_url(endpoint or "")
-
         # Placeholder for actual HTTP request
         # In production, would use aiohttp
         await asyncio.sleep(0.1)  # Simulate network request
@@ -111,8 +109,6 @@ class RESTConnector(BaseConnector):
         """
         if not self._connection:
             raise RuntimeError("Not connected")
-
-        url = self._build_url(endpoint or "")
 
         # Placeholder for actual HTTP request
         await asyncio.sleep(0.1)  # Simulate network request

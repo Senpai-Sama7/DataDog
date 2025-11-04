@@ -2,14 +2,13 @@
 Tests for security utilities.
 """
 
-import pytest
 from datadog_platform.utils.security import (
-    redact_sensitive_data,
-    sanitize_url,
-    sanitize_exception_message,
+    SecureString,
     create_audit_log_entry,
     mask_credentials,
-    SecureString,
+    redact_sensitive_data,
+    sanitize_exception_message,
+    sanitize_url,
 )
 
 
@@ -20,7 +19,7 @@ class TestRedactSensitiveData:
         """Test that password fields are redacted in dictionaries."""
         data = {"username": "admin", "password": "secret123", "host": "localhost"}
         result = redact_sensitive_data(data)
-        
+
         assert result["username"] == "admin"
         assert result["password"] == "***REDACTED***"
         assert result["host"] == "localhost"
@@ -36,7 +35,7 @@ class TestRedactSensitiveData:
             "api_key": "abc123",
         }
         result = redact_sensitive_data(data)
-        
+
         assert result["db_config"]["host"] == "localhost"
         assert result["db_config"]["password"] == "***REDACTED***"
         assert result["api_key"] == "***REDACTED***"
@@ -48,7 +47,7 @@ class TestRedactSensitiveData:
             {"name": "user2", "secret_key": "secret2"},
         ]
         result = redact_sensitive_data(data)
-        
+
         assert result[0]["name"] == "user1"
         assert result[0]["token"] == "***REDACTED***"
         assert result[1]["secret_key"] == "***REDACTED***"
@@ -57,14 +56,14 @@ class TestRedactSensitiveData:
         """Test custom redaction text."""
         data = {"password": "secret"}
         result = redact_sensitive_data(data, redaction_text="[HIDDEN]")
-        
+
         assert result["password"] == "[HIDDEN]"
 
     def test_case_insensitive_matching(self):
         """Test that field matching is case insensitive."""
         data = {"PASSWORD": "secret", "Secret_Key": "key123", "ApiKey": "xyz"}
         result = redact_sensitive_data(data)
-        
+
         assert result["PASSWORD"] == "***REDACTED***"
         assert result["Secret_Key"] == "***REDACTED***"
         assert result["ApiKey"] == "***REDACTED***"
@@ -77,7 +76,7 @@ class TestSanitizeUrl:
         """Test URL sanitization removes credentials."""
         url = "mongodb://user:pass@localhost:27017/mydb"
         result = sanitize_url(url)
-        
+
         assert "user" not in result
         assert "pass" not in result
         assert "localhost:27017" in result
@@ -86,14 +85,14 @@ class TestSanitizeUrl:
         """Test URL without credentials remains unchanged."""
         url = "mongodb://localhost:27017/mydb"
         result = sanitize_url(url)
-        
+
         assert result == url
 
     def test_sanitize_http_url_with_credentials(self):
         """Test HTTP URL with credentials."""
         url = "https://admin:secret@api.example.com/v1/data"
         result = sanitize_url(url)
-        
+
         assert "admin" not in result
         assert "secret" not in result
         assert "api.example.com" in result
@@ -102,7 +101,7 @@ class TestSanitizeUrl:
         """Test non-URL strings are returned as-is."""
         text = "This is not a URL"
         result = sanitize_url(text)
-        
+
         assert result == text
 
     def test_sanitize_empty_string(self):
@@ -118,7 +117,7 @@ class TestSanitizeExceptionMessage:
         """Test exception message with embedded URL is sanitized."""
         exc = ValueError("Connection failed to mongodb://user:pass@localhost:27017")
         result = sanitize_exception_message(exc)
-        
+
         assert "user" not in result
         assert "pass" not in result
 
@@ -126,7 +125,7 @@ class TestSanitizeExceptionMessage:
         """Test exception message with token-like strings."""
         exc = RuntimeError("Auth failed with token: AbCdEf1234567890123456789012")
         result = sanitize_exception_message(exc)
-        
+
         # Long token should be redacted
         assert "AbCdEf1234567890123456789012" not in result
         assert "***REDACTED***" in result
@@ -135,7 +134,7 @@ class TestSanitizeExceptionMessage:
         """Test plain exception message without sensitive data."""
         exc = ValueError("Invalid configuration")
         result = sanitize_exception_message(exc)
-        
+
         assert result == "Invalid configuration"
 
 
@@ -149,7 +148,7 @@ class TestCreateAuditLogEntry:
             resource_type="connector",
             resource_name="my-connector",
         )
-        
+
         assert entry["event_type"] == "audit"
         assert entry["action"] == "register"
         assert entry["resource_type"] == "connector"
@@ -165,7 +164,7 @@ class TestCreateAuditLogEntry:
             resource_name="my-pipeline",
             actor="admin_user",
         )
-        
+
         assert entry["actor"] == "admin_user"
 
     def test_create_audit_entry_with_metadata(self):
@@ -176,7 +175,7 @@ class TestCreateAuditLogEntry:
             resource_name="my-connector",
             metadata={"connector_type": "mongodb", "password": "secret"},
         )
-        
+
         assert "metadata" in entry
         assert entry["metadata"]["connector_type"] == "mongodb"
         # Password should be redacted in metadata
@@ -190,7 +189,7 @@ class TestCreateAuditLogEntry:
             resource_name="failing-connector",
             outcome="failure",
         )
-        
+
         assert entry["outcome"] == "failure"
 
 
@@ -206,15 +205,15 @@ class TestMaskCredentials:
             "password": "secret",
             "ssl": True,
         }
-        
+
         masked = mask_credentials(config)
-        
+
         assert masked["host"] == "localhost"
         assert masked["port"] == 5432
         assert masked["username"] == "admin"
         assert masked["password"] == "***REDACTED***"
         assert masked["ssl"] is True
-        
+
         # Original should not be modified
         assert config["password"] == "secret"
 
@@ -225,26 +224,26 @@ class TestSecureString:
     def test_secure_string_creation(self):
         """Test SecureString creation and value retrieval."""
         secure = SecureString("my-secret-value")
-        
+
         assert secure.get_value() == "my-secret-value"
 
     def test_secure_string_str_redacted(self):
         """Test SecureString __str__ returns redacted value."""
         secure = SecureString("my-secret-value")
-        
+
         assert str(secure) == "***REDACTED***"
         assert "my-secret-value" not in str(secure)
 
     def test_secure_string_repr_redacted(self):
         """Test SecureString __repr__ returns redacted value."""
         secure = SecureString("my-secret-value")
-        
+
         assert "my-secret-value" not in repr(secure)
         assert "***REDACTED***" in repr(secure)
 
     def test_secure_string_custom_redaction(self):
         """Test SecureString with custom redaction text."""
         secure = SecureString("my-secret", redaction_text="[HIDDEN]")
-        
+
         assert str(secure) == "[HIDDEN]"
         assert secure.get_value() == "my-secret"
