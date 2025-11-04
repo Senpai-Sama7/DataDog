@@ -87,7 +87,8 @@ def _register_builtin_connectors() -> None:
     )
 
     # SQL connectors
-    ConnectorFactory.register_connector(ConnectorType.POSTGRESQL, SQLConnector)
+    from datadog_platform.connectors.postgresql_connector import PostgreSQLConnector
+    ConnectorFactory.register_connector(ConnectorType.POSTGRESQL, PostgreSQLConnector)
     ConnectorFactory.register_connector(ConnectorType.MYSQL, SQLConnector)
 
     # NoSQL connectors

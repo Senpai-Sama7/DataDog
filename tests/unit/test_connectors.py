@@ -30,6 +30,19 @@ class TestConnectorFactory:
         assert connector is not None
         assert connector.config["host"] == "localhost"
 
+    def test_create_postgresql_connector(self) -> None:
+        """Test creating PostgreSQL connector."""
+        from datadog_platform.connectors.postgresql_connector import PostgreSQLConnector
+
+        connector = ConnectorFactory.create_connector(
+            ConnectorType.POSTGRESQL,
+            {"host": "localhost", "database": "testdb", "username": "user", "password": "pass"},
+        )
+
+        assert connector is not None
+        assert isinstance(connector, PostgreSQLConnector)
+
+
     def test_create_file_connector(self) -> None:
         """Test creating file connector."""
         connector = ConnectorFactory.create_connector(
