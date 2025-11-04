@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="assets/data-dog-logo.png" alt="DataDog" width="300"/>
+</p>
+
+
 # DataDog - Universal Data Orchestration Platform
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
