@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/data-dog-logo.png" alt="DataDog" width="300"/>
+  <img src="Generated Image November 05, 2025 - 6_57PM (1).png" alt="DataDog" width="300"/>
 </p>
 
 
