@@ -1,0 +1,450 @@
+Perfect. Below are the learner-facing packs for all four modules in Course 3, in a consistent, drop-in JSON format you can feed to your course generator. I kept each pack compact enough to use immediately, but rich enough to cover interactive text, slides, audio, mind maps, and labs.
+
+> Note on pedagogy: each module explicitly uses Learn Your Way’s multi-representation pattern with immersive text, section quizzes, narrated slides, audio dialogs that surface misconceptions, and mind maps, adapted to level and interests. ([Google Research][1])
+
+---
+
+```json
+{
+  "module_id": "3.1",
+  "title": "Data Types and Structures",
+  "hours": 6,
+  "objectives": [
+    "Differentiate structured, semi-structured, and unstructured data",
+    "Explain tables, keys, cardinality, and basic relational design",
+    "Draft a 1-page data dictionary for a small dataset"
+  ],
+  "prerequisites": ["Course 1 and 2 or equivalent", "Basic spreadsheet familiarity"],
+  "success_criteria": [
+    "Correctly identify PK and FK in a two-table mini schema",
+    "Accurately classify fields by type and format",
+    "Submit a data dictionary aligned to minimal metadata elements"
+  ],
+  "personalization": {
+    "interests": ["sports", "music", "food", "business"],
+    "reading_level": "adaptive",
+    "pace": "adaptive"
+  },
+  "representations": {
+    "interactive_text": {
+      "sections": [
+        {
+          "title": "From files to tables",
+          "body": "Compare CSV, JSON, and relational tables. Map rows to records and columns to fields. Note why consistent types reduce cleaning effort."
+        },
+        {
+          "title": "Keys and relationships",
+          "body": "Define primary keys and foreign keys. Explore one-to-many vs many-to-many. Learn why surrogate keys are common."
+        },
+        {
+          "title": "Nulls, constraints, and integrity",
+          "body": "Understand NULL vs empty string, uniqueness, and referential integrity. See how constraints prevent silent data drift."
+        }
+      ],
+      "embedded_questions": [
+        {"type": "mcq", "prompt": "Which best describes a foreign key?", "options": ["Unique identifier in its own table", "Field that references a primary key in another table", "Freeform text column"], "answer_index": 1, "rationale": "FK references a PK in a different table."},
+        {"type": "mcq", "prompt": "CSV is usually considered:", "options": ["Structured", "Semi-structured", "Unstructured"], "answer_index": 1, "rationale": "CSV lacks enforced schema but is tabular-like."},
+        {"type": "fitb", "prompt": "A column allowed to have no value is recorded as ______.", "answer": "NULL"},
+        {"type": "mcq", "prompt": "A many-to-many relationship typically requires:", "options": ["Two FKs in each table", "A junction table", "A composite PK only"], "answer_index": 1, "rationale": "Use a bridge table with two FKs."},
+        {"type": "mcq", "prompt": "Which field is the best primary key for People?", "options": ["FullName", "Email that can change", "PersonID surrogate"], "answer_index": 2},
+        {"type": "fitb", "prompt": "Referential integrity ensures every FK points to an existing ______.", "answer": "PK"}
+      ]
+    },
+    "narrated_slides": {
+      "slides": [
+        {"title": "The data landscape", "bullets": ["Structured vs semi-structured vs unstructured", "Files vs databases", "Why schemas matter"]},
+        {"title": "Relational building blocks", "bullets": ["Tables, rows, columns", "Primary keys", "Foreign keys"]},
+        {"title": "Cardinality patterns", "bullets": ["1-to-1", "1-to-many", "many-to-many with junctions"]},
+        {"title": "Nulls and constraints", "bullets": ["NULL vs empty", "UNIQUE, NOT NULL, CHECK", "Referential integrity"]},
+        {"title": "Choosing keys", "bullets": ["Natural vs surrogate", "Stability, meaning, performance"]}
+      ],
+      "speaker_notes": "Use real examples from the lab. Pause after each concept for a 1-item check."
+    },
+    "audio_lesson_script": {
+      "scenes": [
+        {"teacher": "What breaks when a FK points to nothing?", "student": "Reports miscount. Orphaned rows."},
+        {"teacher": "When might a natural key be risky?", "student": "If it changes. Emails and names often change; better use a surrogate ID."}
+      ],
+      "duration_minutes": 6
+    },
+    "mind_map": {
+      "nodes": [
+        {"id": "root", "label": "Data Structures"},
+        {"id": "files", "label": "Files: CSV, JSON"},
+        {"id": "db", "label": "Relational DB"},
+        {"id": "keys", "label": "PK & FK"},
+        {"id": "card", "label": "Cardinality"},
+        {"id": "nulls", "label": "Nulls & Constraints"},
+        {"id": "dict", "label": "Data Dictionary"}
+      ],
+      "edges": [
+        ["root", "files"], ["root", "db"], ["db", "keys"], ["db", "card"], ["db", "nulls"], ["root", "dict"]
+      ]
+    }
+  },
+  "hands_on": {
+    "lab": {
+      "title": "Mini retail schema and dictionary",
+      "scenario": "You receive Orders.csv and Customers.csv for a regional shop.",
+      "steps": [
+        "Import both CSVs to a local SQL DB or spreadsheet",
+        "Identify PKs and FKs, propose a junction if needed",
+        "List each field with type, allowed nulls, and meaning",
+        "Write 3 questions stakeholders could answer with this schema"
+      ],
+      "checklist": [
+        "PKs and FKs labeled",
+        "Nullability decisions justified",
+        "At least 10 fields documented"
+      ],
+      "starter_files": ["Orders.csv", "Customers.csv"],
+      "submit": ["schema.png or .drawio", "data_dictionary.md"]
+    }
+  },
+  "adaptive_quiz": {
+    "pool": [
+      {"id": "q1", "difficulty": "easy", "topic": "types"},
+      {"id": "q2", "difficulty": "medium", "topic": "keys"},
+      {"id": "q3", "difficulty": "medium", "topic": "nulls"},
+      {"id": "q4", "difficulty": "hard", "topic": "cardinality"}
+    ]
+  },
+  "portfolio_artifact": "One-page dictionary with schema sketch",
+  "accessibility": {"captions": true, "alt_text": true, "keyboard_only": true},
+  "ethics_and_bias": "Flag fields that might encode bias. Document collection caveats.",
+  "time_on_task": {"reading": 60, "practice": 120, "assessment": 60}
+}
+```
+
+**Module 3.1 references:** Learn Your Way multi-representation design and retention gains. ([Google Research][1])
+
+---
+
+```json
+{
+  "module_id": "3.2",
+  "title": "SQL Fundamentals",
+  "hours": 8,
+  "objectives": [
+    "Write SELECT queries with filters, ordering, and limits",
+    "Join tables with INNER and LEFT JOIN",
+    "Aggregate with GROUP BY and HAVING"
+  ],
+  "prerequisites": ["Module 3.1"],
+  "success_criteria": [
+    "Pass auto-graded tasks on SELECT and JOIN",
+    "Produce correct grouped metrics with HAVING filters"
+  ],
+  "representations": {
+    "interactive_text": {
+      "sections": [
+        {"title": "Query anatomy", "body": "Map SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY to the logical processing order."},
+        {"title": "Joining data", "body": "Use INNER vs LEFT joins to control row preservation."},
+        {"title": "Summaries that scale", "body": "GROUP BY, aggregates, and basic subqueries."}
+      ],
+      "embedded_questions": [
+        {"type": "mcq", "prompt": "Which clause filters after aggregation?", "options": ["WHERE", "HAVING", "ORDER BY"], "answer_index": 1},
+        {"type": "mcq", "prompt": "LEFT JOIN keeps:", "options": ["Only matching rows", "All left rows plus matches", "All right rows plus matches"], "answer_index": 1},
+        {"type": "fitb", "prompt": "To cap result length use ______.", "answer": "LIMIT"},
+        {"type": "mcq", "prompt": "Which clause lists source tables?", "options": ["FROM", "WHERE", "SELECT"], "answer_index": 0},
+        {"type": "mcq", "prompt": "Aggregate that counts non-null values:", "options": ["COUNT(*)", "COUNT(col)", "SUM(col)"], "answer_index": 1},
+        {"type": "fitb", "prompt": "A subquery in FROM needs a table ______.", "answer": "alias"}
+      ]
+    },
+    "narrated_slides": {
+      "slides": [
+        {"title": "SQL in 1 picture", "bullets": ["Logical order", "Physical syntax", "Common pitfalls"]},
+        {"title": "Selecting and filtering", "bullets": ["SELECT list", "WHERE predicates"]},
+        {"title": "Joining", "bullets": ["Join condition", "INNER vs LEFT", "Duplicate keys"]},
+        {"title": "Aggregation", "bullets": ["GROUP BY", "HAVING", "Common errors"]},
+        {"title": "Subqueries and CTE teaser", "bullets": ["FROM subselect", "WITH for readability"]}
+      ],
+      "speaker_notes": "Demonstrate with a live sandbox. Show wrong-then-right examples."
+    },
+    "audio_lesson_script": {
+      "scenes": [
+        {"teacher": "Your LEFT JOIN returns fewer rows than the left table. Why might that happen?", "student": "The WHERE clause filtered null-extended rows. Move the predicate into the JOIN condition or use HAVING appropriately."},
+        {"teacher": "When do you use HAVING?", "student": "When filtering on aggregate results after GROUP BY."}
+      ],
+      "duration_minutes": 7
+    },
+    "mind_map": {
+      "nodes": [
+        {"id": "root", "label": "SQL Fundamentals"},
+        {"id": "select", "label": "SELECT"},
+        {"id": "from", "label": "FROM & JOIN"},
+        {"id": "where", "label": "WHERE"},
+        {"id": "group", "label": "GROUP BY"},
+        {"id": "having", "label": "HAVING"},
+        {"id": "order", "label": "ORDER BY"},
+        {"id": "subq", "label": "Subqueries"}
+      ],
+      "edges": [
+        ["root","select"],["root","from"],["root","where"],["root","group"],["group","having"],["root","order"],["root","subq"]
+      ]
+    }
+  },
+  "hands_on": {
+    "lab": {
+      "title": "Retail KPIs with SQL",
+      "scenario": "Use a small retail dataset to answer stakeholder questions.",
+      "steps": [
+        "Compute monthly revenue and order count",
+        "List top 10 customers by revenue",
+        "Find products with negative total profit",
+        "Compare INNER vs LEFT join results when listing customers with orders"
+      ],
+      "checklist": [
+        "All queries run and are commented",
+        "JOIN conditions use keys, not names",
+        "GROUP BY columns align with SELECT"
+      ],
+      "starter_files": ["schema.sql", "retail_sample.db"],
+      "submit": ["answers.sql", "readme.md"]
+    }
+  },
+  "adaptive_quiz": {
+    "pool": [
+      {"id": "q1", "difficulty": "easy", "topic": "SELECT"},
+      {"id": "q2", "difficulty": "medium", "topic": "JOIN"},
+      {"id": "q3", "difficulty": "medium", "topic": "GROUP_BY"},
+      {"id": "q4", "difficulty": "hard", "topic": "subqueries"}
+    ]
+  },
+  "portfolio_artifact": "answers.sql with stakeholder-ready notes",
+  "accessibility": {"captions": true, "alt_text": true},
+  "ethics_and_bias": "Call out how filtering criteria may exclude populations unintentionally.",
+  "time_on_task": {"reading": 60, "practice": 240, "assessment": 60}
+}
+```
+
+**Module 3.2 references:** SQL syntax and joins from PostgreSQL docs including SELECT, JOINs, and subqueries. ([PostgreSQL][2])
+
+---
+
+```json
+{
+  "module_id": "3.3",
+  "title": "Spreadsheet Mastery",
+  "hours": 6,
+  "objectives": [
+    "Build validation, lookups, and time-saving formulas",
+    "Create PivotTables in Sheets or Excel",
+    "Export clean summary tables for downstream tools"
+  ],
+  "prerequisites": ["Module 3.1"],
+  "success_criteria": [
+    "Pivot configured correctly with rows, columns, values, and filters",
+    "Validation and named ranges implemented",
+    "Deliver a reusable summary sheet"
+  ],
+  "representations": {
+    "interactive_text": {
+      "sections": [
+        {"title": "When to spreadsheet", "body": "Use spreadsheets for quick exploration or presentation-ready summaries. Escalate to SQL when joins or scale demand it."},
+        {"title": "Validation and named ranges", "body": "Lock inputs, prevent bad data, and make formulas readable."},
+        {"title": "Lookup, date, and text helpers", "body": "INDEX/MATCH or XLOOKUP, TEXTSPLIT, TEXTJOIN, EOMONTH, and IF logic."},
+        {"title": "Pivot tables", "body": "Summarize by dimensions and measures. Keep source data tidy and headers clear."}
+      ],
+      "embedded_questions": [
+        {"type": "mcq", "prompt": "Best way to summarize Sales by Region by Month:", "options": ["Manual SUMIF in grid", "Pivot table", "Typing totals"], "answer_index": 1},
+        {"type": "mcq", "prompt": "Validation helps you:", "options": ["Format fonts", "Prevent invalid entries", "Create charts"], "answer_index": 1},
+        {"type": "fitb", "prompt": "A named range makes formulas more ______.", "answer": "readable"},
+        {"type": "mcq", "prompt": "If you need to refresh from a database:", "options": ["Re-type manually", "Use connection and refresh or export then pivot", "Copy-paste values"], "answer_index": 1},
+        {"type": "mcq", "prompt": "COUNT of unique IDs in a pivot often needs:", "options": ["Calculated field or distinct approach", "More colors", "Merging cells"], "answer_index": 0},
+        {"type": "fitb", "prompt": "Pivot filters that slice dashboards are called ______.", "answer": "slicers"}
+      ]
+    },
+    "narrated_slides": {
+      "slides": [
+        {"title": "Clean data, clean pivots", "bullets": ["Headers in row 1", "No merged cells", "Single table"]},
+        {"title": "Validation and names", "bullets": ["Lists, ranges", "Error messages"]},
+        {"title": "Lookups that last", "bullets": ["INDEX/MATCH or XLOOKUP", "Avoid volatile chains"]},
+        {"title": "Pivot workflow", "bullets": ["Rows, Columns, Values, Filters", "Calculated fields", "Refresh model"]},
+        {"title": "Formatting for insight", "bullets": ["Number formats", "Percent-of-total", "Conditional formatting"]}
+      ]
+    },
+    "audio_lesson_script": {
+      "scenes": [
+        {"teacher": "Your pivot totals double-counted. What happened?", "student": "Source table has duplicates at a finer grain. I need to aggregate first or pivot at the correct grain."},
+        {"teacher": "Why named ranges?", "student": "They make formulas readable and safer to edit."}
+      ],
+      "duration_minutes": 6
+    },
+    "mind_map": {
+      "nodes": [
+        {"id": "root", "label": "Spreadsheet Mastery"},
+        {"id": "clean", "label": "Clean Source"},
+        {"id": "validate", "label": "Validation"},
+        {"id": "lookup", "label": "Lookups"},
+        {"id": "pivot", "label": "Pivot Tables"},
+        {"id": "format", "label": "Formatting"}
+      ],
+      "edges": [["root","clean"],["root","validate"],["root","lookup"],["root","pivot"],["root","format"]]
+    }
+  },
+  "hands_on": {
+    "lab": {
+      "title": "Sales by Region by Month pivot",
+      "scenario": "Build a pivot report with percent-of-total and conditional formatting.",
+      "steps": [
+        "Import sample sales table with Date, Region, Category, Sales, Profit",
+        "Insert PivotTable and configure Rows=Region, Columns=Month, Values=Sum(Sales)",
+        "Add a percent-of-grand-total view and a top 10 filter",
+        "Create a Formulas tab with all lookup and helper formulas used"
+      ],
+      "checklist": [
+        "Headers normalized and types correct",
+        "Pivot refreshable from source table",
+        "Percent-of-total and conditional formatting present"
+      ],
+      "starter_files": ["sales_sample.xlsx or .gsheet"],
+      "submit": ["pivot_report.xlsx or link", "formulas_tab_screenshot.png"]
+    }
+  },
+  "adaptive_quiz": {
+    "pool": [
+      {"id": "q1", "difficulty": "easy", "topic": "pivot_basics"},
+      {"id": "q2", "difficulty": "medium", "topic": "lookups"},
+      {"id": "q3", "difficulty": "medium", "topic": "formatting"},
+      {"id": "q4", "difficulty": "hard", "topic": "grain_and_duplicates"}
+    ]
+  },
+  "portfolio_artifact": "A polished pivot-based report with notes",
+  "accessibility": {"captions": true, "alt_text": true},
+  "ethics_and_bias": "Discuss how formatting choices can mislead. Show honest scales and labels.",
+  "time_on_task": {"reading": 45, "practice": 210, "assessment": 45}
+}
+```
+
+**Module 3.3 references:** How to create and design PivotTables in Excel. ([Microsoft Support][3]) Google Sheets pivot table guide and programmatic definition if automating. ([Google for Developers][4])
+
+---
+
+```json
+{
+  "module_id": "3.4",
+  "title": "Data Collection and Metadata",
+  "hours": 4,
+  "objectives": [
+    "Choose an appropriate sampling method",
+    "Draft a short data collection plan",
+    "Capture minimal, high-value metadata for reuse"
+  ],
+  "prerequisites": ["Module 3.1"],
+  "success_criteria": [
+    "Sampling method matches scenario constraints",
+    "Metadata includes title, description, variables, units, coverage, method, caveats, provenance"
+  ],
+  "representations": {
+    "interactive_text": {
+      "sections": [
+        {"title": "Why sampling", "body": "Probability sampling enables inference with known error. Nonprobability methods risk bias but may be practical for pilots."},
+        {"title": "Core sampling designs", "body": "Simple random, stratified, cluster, systematic. Trade cost, precision, and logistics."},
+        {"title": "Metadata that travels", "body": "Document what the data mean, how they were collected, and how to reuse them."}
+      ],
+      "embedded_questions": [
+        {"type": "mcq", "prompt": "Best design when subgroups must be represented in fixed proportions:", "options": ["SRS", "Stratified", "Cluster"], "answer_index": 1},
+        {"type": "mcq", "prompt": "Cluster sampling often trades precision for:", "options": ["Lower cost", "Higher variance only", "More bias always"], "answer_index": 0},
+        {"type": "fitb", "prompt": "Selecting every k-th unit is called ______ sampling.", "answer": "systematic"},
+        {"type": "mcq", "prompt": "Which metadata element helps discoverability the most?", "options": ["Pretty chart", "Clear title and description", "Random tags"], "answer_index": 1},
+        {"type": "mcq", "prompt": "Universe refers to:", "options": ["All possible values of a variable", "Population the study aims to describe", "The file format"], "answer_index": 1},
+        {"type": "fitb", "prompt": "Record when and how data were collected under ______.", "answer": "Collection Date or Method"}
+      ]
+    },
+    "narrated_slides": {
+      "slides": [
+        {"title": "From question to sample", "bullets": ["Define population", "Constraints: time, budget, access"]},
+        {"title": "Choose a design", "bullets": ["SRS", "Stratified", "Cluster", "Systematic"]},
+        {"title": "Document it", "bullets": ["Title, purpose, universe", "Sampling description", "Variables and units", "Provenance"]}
+      ],
+      "speaker_notes": "Use quick vignettes: hospital survey, retail store audit, website logs."
+    },
+    "audio_lesson_script": {
+      "scenes": [
+        {"teacher": "You must sample 10k customers across 5 regions fairly. What do you pick?", "student": "Stratified by region with proportional allocation to reduce error."},
+        {"teacher": "What goes into minimal metadata?", "student": "Title, description, variables, units, universe, collection date, method, caveats, and provenance."}
+      ],
+      "duration_minutes": 6
+    },
+    "mind_map": {
+      "nodes": [
+        {"id": "root", "label": "Collection & Metadata"},
+        {"id": "design", "label": "Sampling design"},
+        {"id": "srs", "label": "SRS"},
+        {"id": "strat", "label": "Stratified"},
+        {"id": "cluster", "label": "Cluster"},
+        {"id": "sys", "label": "Systematic"},
+        {"id": "meta", "label": "Metadata elements"},
+        {"id": "prov", "label": "Provenance"}
+      ],
+      "edges": [
+        ["root","design"],["design","srs"],["design","strat"],["design","cluster"],["design","sys"],["root","meta"],["meta","prov"]
+      ]
+    }
+  },
+  "hands_on": {
+    "lab": {
+      "title": "Draft a sampling plan with reusable metadata",
+      "scenario": "You need feedback from customers across 4 regions and 3 segments.",
+      "steps": [
+        "Define population, universe, and constraints",
+        "Select a design and justify it in 3 sentences",
+        "Create a one-page metadata sheet with ICPSR-inspired fields",
+        "List risks to validity and mitigation"
+      ],
+      "checklist": [
+        "Design choice aligned to constraints",
+        "Metadata fields filled and clear",
+        "Risks and mitigations listed"
+      ],
+      "templates": ["sampling_plan.docx", "metadata_minimal.md"],
+      "submit": ["sampling_plan.pdf", "metadata_minimal.md"]
+    }
+  },
+  "adaptive_quiz": {
+    "pool": [
+      {"id": "q1", "difficulty": "easy", "topic": "definitions"},
+      {"id": "q2", "difficulty": "medium", "topic": "design_choice"},
+      {"id": "q3", "difficulty": "hard", "topic": "bias_tradeoffs"}
+    ]
+  },
+  "portfolio_artifact": "Sampling plan plus metadata sheet",
+  "accessibility": {"captions": true, "alt_text": true},
+  "ethics_and_bias": "Identify sampling and measurement bias risks. Include caveats in metadata.",
+  "time_on_task": {"reading": 35, "practice": 140, "assessment": 25}
+}
+```
+
+**Module 3.4 references:** Probability sampling overviews and tradeoffs from Penn State STAT resources. ([PennState: Statistics Online Courses][5]) Minimal, reusable metadata elements and guidance from ICPSR. ([ICPSR][6])
+
+---
+
+# Capstone linkage for Course 3
+
+For your Course 3 capstone, you can use the Tableau Superstore dataset or a similar public retail dataset. Superstore is bundled with Tableau and has documented fields, making it a dependable teaching dataset, and Tableau explains what makes a “good dataset” for analysis. ([Tableau Help][7]) If you prefer to source alternatives, point learners to Google Dataset Search and teach them to evaluate dataset metadata and licensing before use. ([blog.google][8])
+
+# Alignment with the Google certificate track
+
+This module set mirrors the “Prepare Data for Exploration” outcomes listed by Google, including structured vs unstructured, spreadsheets and SQL, database access, and metadata. ([Career Skills][9])
+
+---
+
+## Quick instructor notes
+
+1. Keep the multi-modal rhythm constant: immersive text, a micro-quiz, narrated slides, then audio dialog that surfaces misconceptions, then the lab. This is the Learn Your Way pattern and is linked to short-term and retention gains in Google’s evaluation. ([Google Research][1])
+2. When teaching SQL, anchor examples and clause behavior in PostgreSQL’s official documentation for SELECT, joins, and subqueries. ([PostgreSQL][2])
+3. For pivots, reference official help for Excel and the Sheets developer guide if you plan to automate pivot creation for challenge labs. ([Microsoft Support][3])
+4. For sampling and metadata, emphasize repeatability and discoverability using ICPSR-inspired elements. ([ICPSR][6])
+
+If you want, I can now spin out the auto-graded items bank and the starter files for the labs as downloadable assets.
+
+[1]: https://research.google/blog/learn-your-way-reimagining-textbooks-with-generative-ai/?utm_source=chatgpt.com "Learn Your Way: Reimagining textbooks with generative AI"
+[2]: https://www.postgresql.org/docs/current/static/sql-select.html?utm_source=chatgpt.com "PostgreSQL: Documentation: 18: SELECT"
+[3]: https://support.microsoft.com/en-us/office/create-a-pivottable-with-an-external-data-source-db50d01d-2e1c-43bd-bfb5-b76a818a927b?utm_source=chatgpt.com "Create a PivotTable with an external data source - Microsoft Support"
+[4]: https://developers.google.com/workspace/sheets/api/guides/pivot-tables?utm_source=chatgpt.com "Pivot tables  |  Google Sheets  |  Google for Developers"
+[5]: https://online.stat.psu.edu/stat800/Lesson03?utm_source=chatgpt.com "3  Sampling – STAT 800 | Applied Research Methods"
+[6]: https://www.icpsr.umich.edu/pages/datamanagement/lifecycle/metadata.html?utm_source=chatgpt.com "ICPSR | Data Management | Metadata"
+[7]: https://help.tableau.com/current/pro/desktop/en-us/find_good_datasets.htm?utm_source=chatgpt.com "Find Good Data Sets - Tableau"
+[8]: https://blog.google/products/search/discovering-millions-datasets-web/?utm_source=chatgpt.com "Discovering millions of datasets on the web"
+[9]: https://career.skills.google/course_templates/1225?utm_source=chatgpt.com "Prepare Data for Exploration | Career Skills"

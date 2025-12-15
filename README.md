@@ -24,7 +24,7 @@
 
 ### 🏗️ Architecture Highlights
 - **Plugin-based Architecture**: Extensible connector system for custom data sources
-- **Distributed State Management**: ACID-compliant metadata store with checkpoint recovery
+- **Distributed State Management**: ACID-compliant PostgreSQL metadata store with checkpoint recovery
 - **Multi-backend Execution**: Support for local, distributed, and cloud-native execution
 - **Backpressure Handling**: Intelligent resource management and flow control
 - **Observability**: Full instrumentation with metrics, logging, and distributed tracing

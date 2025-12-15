@@ -1,0 +1,523 @@
+Perfect. Here is Course 1 fully generated using the exact “Learn Your Way” pattern you asked for: first personalize, then transform into synchronized views with embedded assessment and portfolio outcomes. I kept your hours at 22 and aligned every element to your outline.
+
+# Course 1: Foundations – Data, Data Everywhere (22 hours)
+
+**Course overview:** This course onboards beginners to data analytics, its roles, lifecycle, and ethics. Each module applies the Learn Your Way two-step pipeline: personalization to grade level and interest, then synchronized representations: immersive text with embedded questions, narrated slide outlines with speaker notes, an audio teacher–student script, and a mind map. Section-level quizzes supply Glows and Grows feedback and adapt difficulty in later items.    ([Google Research][1])
+
+**Why this structure:** Learn Your Way’s randomized controlled study shows significantly higher immediate and three-day retention versus a standard digital reader when learners study with personalized, multi-view content and embedded formative assessment. Embedded questions and section quizzes close the loop with targeted feedback labeled as Glows and Grows.
+
+**Hours and sequencing:**
+
+* Module 1: 6 hours
+* Module 2: 6 hours
+* Module 3: 6 hours
+* Module 4: 4 hours
+* Capstone: included inside the 22 hours as the last 2 of the total in Module 4’s window
+
+**Tools introduced but light-touch only:** Sheets or Excel, SQL sandbox, Tableau viewer, RStudio preview, GitHub viewing. This mirrors the toolchain used in the Google Data Analytics Certificate pathway. ([Grow with Google][2])
+
+---
+
+## Module table: titles, hours, objectives, prerequisites, success criteria
+
+| Module | Title                                      | Hours | Objectives                                                                                                 | Prereqs | Success criteria                                                                                          |
+| ------ | ------------------------------------------ | ----: | ---------------------------------------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| C1-M1  | The Data Ecosystem and Roles               |     6 | Explain the analytics lifecycle, distinguish analyst vs BI vs data scientist, describe common data sources | None    | Accurately describe roles and lifecycle, identify suitable data sources for a prompt                      |
+| C1-M2  | Analytical Thinking and Question Design    |     6 | Write SMART questions, map stakeholder goals to metrics, practice structured problem framing               | C1-M1   | Produce a question backlog and hypothesis list that passes instructor checklist                           |
+| C1-M3  | The Analyst’s Toolbox                      |     6 | Compare Sheets, SQL, Tableau, R; complete first interactive lab in each                                    | C1-M1   | Execute a SELECT on a sample DB, build a pivot table, open a Tableau workbook, knit an R Markdown preview |
+| C1-M4  | Ethics, Privacy, and Professional Practice |     4 | Recognize bias, fairness, and privacy risks; draft a lightweight data ethics SOP                           | C1-M1   | Submit an ethics checklist and risk log for a toy dataset, pass scenario quiz 80 percent+                 |
+
+---
+
+# Module packages
+
+Below each JSON object is a short human-readable rendering. All representations are synchronized and generated from the same personalized source, consistent with Learn Your Way.
+
+### C1-M1 JSON
+
+```json
+{
+  "module_id": "C1-M1",
+  "title": "The Data Ecosystem and Roles",
+  "hours": 6,
+  "objectives": [
+    "Describe the end-to-end data analytics lifecycle and where analysts add value",
+    "Differentiate roles: data analyst, BI analyst, data scientist, data engineer",
+    "Identify common data sources and basic structures (tables, files, APIs)"
+  ],
+  "prerequisites": ["None"],
+  "success_criteria": [
+    "Explains lifecycle stages and deliverables in their own words",
+    "Maps a business question to a lifecycle stage and plausible data sources",
+    "Chooses an appropriate representation (table, chart, narrative) for a simple finding"
+  ],
+  "personalization": {
+    "grade_level_adaptation": "Undergraduate entry level",
+    "interest_hook": "sports",
+    "learning_style_plan": ["visual", "auditory", "kinesthetic"]
+  },
+  "representations": {
+    "immersive_text": {
+      "sections": [
+        {
+          "heading": "What a data analyst actually does",
+          "content": "Analysts turn messy inputs into useful answers. You will meet data in spreadsheets, databases, and logs. Your job is to ask the right question, shape the data, analyze it, then communicate the insight so a decision gets made."
+        },
+        {
+          "heading": "Lifecycle at a glance",
+          "content": "Ask, Prepare, Process, Analyze, Share, Act. We revisit each stage in later courses and map tools to stages. In the sports hook: imagine a club GM using ticketing data, player stats, and marketing data to boost revenue."
+        }
+      ],
+      "embedded_questions": [
+        {
+          "anchor_section": "Lifecycle at a glance",
+          "mcq": {
+            "stem": "Which stage focuses on turning cleaned data into findings?",
+            "choices": ["Ask", "Process", "Analyze", "Share"],
+            "answer": "Analyze",
+            "why": "Analysis creates findings after data is prepared and processed."
+          }
+        }
+      ],
+      "timeline": ["Ask", "Prepare", "Process", "Analyze", "Share", "Act"],
+      "mnemonic": {"topic": "Lifecycle", "sentence": "All Players Practice And Shoot Always"}
+    },
+    "narrated_slides": {
+      "slides": [
+        {
+          "title": "Roles in the Data Team",
+          "bullets": ["Analyst: questions to insights", "Engineer: pipelines and tables", "Scientist: models and experiments"],
+          "speaker_notes": "In practice these roles overlap. In small orgs, an analyst may write SQL and ship dashboards. In larger orgs, a data engineer owns pipelines while analysts focus on insight and communication."
+        },
+        {
+          "title": "Data sources you will see first",
+          "bullets": ["Operational tables", "CSV exports", "APIs", "Logs"],
+          "speaker_notes": "You will typically start with a spreadsheet export, then graduate to SQL. APIs and logs appear later once you learn repeatable data pulls and parsing."
+        }
+      ]
+    },
+    "audio_lesson_script": {
+      "dialogue": [
+        {"role": "Teacher", "text": "If a stadium wants to raise season ticket renewals, what is the first lifecycle stage?"},
+        {"role": "Student", "text": "Ask, because we need a precise question and success metric."}
+      ],
+      "misconception_checks": ["Confusing roles: analyst vs scientist", "Assuming raw data is analysis-ready"]
+    },
+    "mind_map": {
+      "root": "Analytics lifecycle",
+      "nodes": [
+        {"parent":"root","label":"Ask"},
+        {"parent":"Ask","label":"Stakeholders"},
+        {"parent":"root","label":"Prepare"},
+        {"parent":"root","label":"Process"},
+        {"parent":"root","label":"Analyze"},
+        {"parent":"root","label":"Share"}
+      ]
+    }
+  },
+  "hands_on": {
+    "labs": [
+      {"tool":"Sheets","task":"Profile a small CSV: types, ranges, missing values","dataset":"Retail sample CSV","check":"Pivot rows by region equals 4 and total rows equal 1,000"},
+      {"tool":"SQL","task":"Connect to a read-only sample DB and run SELECT * with LIMIT 5","dataset":"Chinook sample","check":"Result returns 5 rows with expected columns"}
+    ],
+    "datasets": [
+      {"name":"Retail Sample Sales", "source":"Kaggle", "license":"CC BY-NC 4.0", "link":"https://www.kaggle.com/"}
+    ]
+  },
+  "adaptive_quiz": {
+    "items": [
+      {"id":"m1-q1","difficulty":"easy","type":"mcq","stem":"Which role builds ETL pipelines?","answer":"Data engineer","rationale":"Engineers build and maintain pipelines and storage."},
+      {"id":"m1-q2","difficulty":"medium","type":"short","stem":"Name two structured data sources an analyst might use.","answer":"Relational tables, CSV files","rationale":"Both are common starting points."}
+    ],
+    "summary_feedback": {
+      "glows":["You mapped stages to artifacts correctly"],
+      "grows":["Review how engineers and analysts split responsibilities"],
+      "next_steps":["Re-read the Roles section, then retry m1-q1 at hard difficulty"]
+    }
+  },
+  "portfolio_artifact": {
+    "deliverable":"One-page visual of the lifecycle applied to a sports renewal problem",
+    "rubric":["Accuracy across stages","Clarity of examples","Alignment to business goal","Visual readability"],
+    "github_requirements":["repo structure","README checklist"]
+  },
+  "accessibility": ["Alt text for figures","Captioned slide narration","Keyboard-navigable quiz elements"],
+  "ethics_and_bias": ["Avoid role stereotyping","Note consent and privacy when describing data sources"],
+  "time_on_task": {"reading":1, "videos":1, "labs":3, "assessments":1}
+}
+```
+
+**Readable rendering:** You will meet the lifecycle, who does what, and where value is created. The sports hook keeps examples concrete. Multiple synchronized views plus embedded questions reflect Learn Your Way’s design.
+
+---
+
+### C1-M2 JSON
+
+```json
+{
+  "module_id": "C1-M2",
+  "title": "Analytical Thinking and Question Design",
+  "hours": 6,
+  "objectives": [
+    "Write SMART questions and measurable success metrics",
+    "Frame problems with assumptions, constraints, and stakeholders",
+    "Draft hypotheses and candidate analyses tied to data availability"
+  ],
+  "prerequisites": ["C1-M1"],
+  "success_criteria": [
+    "Produces a prioritized question backlog with metrics and data sources",
+    "Clarifies assumptions and risks for at least one scenario",
+    "Chooses chart or table formats aligned to the question type"
+  ],
+  "personalization": {
+    "grade_level_adaptation": "Undergraduate entry level",
+    "interest_hook": "music",
+    "learning_style_plan": ["visual","auditory"]
+  },
+  "representations": {
+    "immersive_text": {
+      "sections": [
+        {
+          "heading": "From vague goals to SMART questions",
+          "content": "Turn 'boost streams' into 'increase monthly unique listeners 10 percent in Q3 among new users'. Tie each question to a metric and a decision."
+        },
+        {
+          "heading": "Hypotheses and analysis plans",
+          "content": "Draft alternative explanations. Decide which analyses could falsify them. Document constraints and data limits before you run queries."
+        }
+      ],
+      "embedded_questions": [
+        {
+          "anchor_section": "From vague goals to SMART questions",
+          "mcq": {
+            "stem": "Which metric best matches the SMART goal of improving new-user engagement?",
+            "choices": ["Total streams", "Minutes per new user per week", "Total users", "App installs"],
+            "answer": "Minutes per new user per week",
+            "why": "It is specific to the target cohort and behavior."
+          }
+        }
+      ],
+      "timeline": ["Define goal","Write questions","Map metrics","Plan analyses","Collect data"],
+      "mnemonic": {"topic":"Questioning","sentence":"Goals Quietly Make Plans Concrete"}
+    },
+    "narrated_slides": {
+      "slides": [
+        {
+          "title":"SMART recap with examples",
+          "bullets":["Specific metric","Time-bounded target"],
+          "speaker_notes":"We convert aspirations into testable statements. Each statement implies a dataset and a chart you could build."
+        },
+        {
+          "title":"Stakeholder alignment",
+          "bullets":["Who decides","What decision","When due"],
+          "speaker_notes":"Clarify the decision deadline and who signs off. This drives scope and the design of your visuals."
+        }
+      ]
+    },
+    "audio_lesson_script": {
+      "dialogue": [
+        {"role":"Teacher","text":"Our label wants 'more discovery'. What would you ask first?"},
+        {"role":"Student","text":"Which audience and which timeframe. Then define an engagement metric we can measure weekly."}
+      ],
+      "misconception_checks": ["Assuming the metric is obvious","Skipping constraints and data provenance"]
+    },
+    "mind_map": {
+      "root": "Analytical thinking",
+      "nodes": [
+        {"parent":"root","label":"SMART"},
+        {"parent":"root","label":"Hypotheses"},
+        {"parent":"root","label":"Metrics"},
+        {"parent":"root","label":"Stakeholders"}
+      ]
+    }
+  },
+  "hands_on": {
+    "labs": [
+      {"tool":"Sheets","task":"Write SMART questions for a sample funnel and map each to a metric","dataset":"App funnels CSV","check":"All five questions map to a measurable field and timeframe"},
+      {"tool":"SQL","task":"Explore distinct users by week for a cohort","dataset":"Chinook-like events","check":"Weekly distinct count computed and trend described"}
+    ],
+    "datasets": [
+      {"name":"App Engagement Toy Dataset","source":"Kaggle","license":"CC BY 4.0","link":"https://www.kaggle.com/"}
+    ]
+  },
+  "adaptive_quiz": {
+    "items": [
+      {"id":"m2-q1","difficulty":"easy","type":"mcq","stem":"Which is not SMART? 'Increase MAU' vs 'Increase MAU 5 percent by Q4 in US'","answer":"'Increase MAU'","rationale":"It lacks target, time, and scope."},
+      {"id":"m2-q2","difficulty":"medium","type":"match","stem":"Match decision to metric","answer":"Renewal pricing -> churn rate; Marketing mix -> CAC; Support staffing -> ticket backlog","rationale":"Metrics align to the decision domain."}
+    ],
+    "summary_feedback": {
+      "glows":["Clear metric-question mapping"],
+      "grows":["Specify cohorts and time windows"],
+      "next_steps":["Revise your backlog adding cohort and time bounds"]
+    }
+  },
+  "portfolio_artifact": {
+    "deliverable":"Question backlog and hypothesis plan for a chosen scenario",
+    "rubric":["Decision alignment","Metric validity","Risk and assumption clarity","Communication quality"],
+    "github_requirements":["repo with /backlog and /notes","readme with scenario and glossary"]
+  },
+  "accessibility": ["Readable tables","Alt text for diagrams","Transcript for audio"],
+  "ethics_and_bias": ["Avoid outcome bias in framing","Document data provenance and limits"],
+  "time_on_task": {"reading":1, "videos":1, "labs":3, "assessments":1}
+}
+```
+
+**Readable rendering:** You will convert vague goals into SMART questions, pick metrics, and plan analyses. The music hook keeps it concrete for engagement scenarios. Embedded questions and a short quiz provide immediate feedback and drive the next-step remediation.
+
+---
+
+### C1-M3 JSON
+
+```json
+{
+  "module_id": "C1-M3",
+  "title": "The Analyst’s Toolbox",
+  "hours": 6,
+  "objectives": [
+    "Understand when to use Sheets, SQL, Tableau, and R",
+    "Complete a first-lap lab in each tool",
+    "Interpret basic outputs and check simple result conditions"
+  ],
+  "prerequisites": ["C1-M1"],
+  "success_criteria": [
+    "Creates a pivot table in Sheets and interprets results",
+    "Runs a basic SELECT with WHERE and LIMIT",
+    "Opens a Tableau workbook and adjusts a filter",
+    "Knits a simple R Markdown preview with a chart"
+  ],
+  "personalization": {
+    "grade_level_adaptation": "Undergraduate entry level",
+    "interest_hook": "business",
+    "learning_style_plan": ["kinesthetic","visual"]
+  },
+  "representations": {
+    "immersive_text": {
+      "sections": [
+        {
+          "heading":"Pick the right tool for the job",
+          "content":"Start in Sheets when data is small and ad hoc. Use SQL for repeatable queries on larger tables. Use Tableau for dashboards and exploratory visuals. Use R when you need scripted analysis, reproducibility, or packages."
+        },
+        {
+          "heading":"Your first lap in each tool",
+          "content":"Perform a pivot in Sheets, a SELECT with a filter in SQL, open a sample Tableau workbook, and render an R Markdown that includes a bar chart."
+        }
+      ],
+      "embedded_questions": [
+        {
+          "anchor_section":"Pick the right tool for the job",
+          "mcq":{
+            "stem":"Which task is best for SQL rather than Sheets?",
+            "choices":["Sorting 200 rows","Joining two large tables","Making a small bar chart","Typing notes"],
+            "answer":"Joining two large tables",
+            "why":"Relational joins and large datasets fit SQL."
+          }
+        }
+      ],
+      "timeline": ["Sheets pivot","SQL filter","Tableau filter","R Markdown preview"],
+      "mnemonic":{"topic":"Tools","sentence":"Simple Sheets, Sturdy SQL, Telling Tableau, Rigorous R"}
+    },
+    "narrated_slides": {
+      "slides":[
+        {"title":"Sheets in context","bullets":["Prototyping","Quick pivots"],"speaker_notes":"Great for quick profiling and sharing small artifacts. Watch for manual errors and lack of provenance."},
+        {"title":"SQL in context","bullets":["Joins","Aggregations"],"speaker_notes":"Use read-only roles and save queries with comments. Favor CTEs to improve clarity."}
+      ]
+    },
+    "audio_lesson_script": {
+      "dialogue":[
+        {"role":"Teacher","text":"We need monthly revenue by channel across millions of rows. Where do we start?"},
+        {"role":"Student","text":"In SQL with a grouped query, then visualize in Tableau once the results are correct."}
+      ],
+      "misconception_checks":["Assuming spreadsheets scale indefinitely","Forgetting read-only credentials in first labs"]
+    },
+    "mind_map": {
+      "root":"Tool choice",
+      "nodes":[
+        {"parent":"root","label":"Sheets"},
+        {"parent":"root","label":"SQL"},
+        {"parent":"root","label":"Tableau"},
+        {"parent":"root","label":"R"}
+      ]
+    }
+  },
+  "hands_on": {
+    "labs": [
+      {"tool":"Sheets","task":"Pivot sales by region and month","dataset":"Retail Sample Sales","check":"Row count equals 12 months and regions match 4"},
+      {"tool":"SQL","task":"SELECT channel, SUM(revenue) FROM facts GROUP BY 1 ORDER BY 2 DESC LIMIT 5","dataset":"Sample warehouse","check":"Five rows returned with descending sums"},
+      {"tool":"Tableau","task":"Open workbook, add a filter, export a PNG","dataset":"Same CSV","check":"PNG exists with filter annotation"},
+      {"tool":"R","task":"Render an Rmd with a bar chart using ggplot2","dataset":"Same CSV","check":".html output renders without error"}
+    ],
+    "datasets":[
+      {"name":"Retail Sample Sales","source":"Kaggle","license":"CC BY-NC 4.0","link":"https://www.kaggle.com/"},
+      {"name":"Google Data Analytics sample assets","source":"Grow with Google","license":"Educational use","link":"https://grow.google/certificates/data-analytics/"}
+    ]
+  },
+  "adaptive_quiz": {
+    "items":[
+      {"id":"m3-q1","difficulty":"easy","type":"mcq","stem":"Best tool for a repeatable join across 10M rows?","answer":"SQL","rationale":"Designed for large, relational data."},
+      {"id":"m3-q2","difficulty":"medium","type":"short","stem":"Name one reason to prefer R over Sheets for analysis.","answer":"Reproducibility via code","rationale":"Scripts are auditable and repeatable."}
+    ],
+    "summary_feedback":{
+      "glows":["Correct tool selection rationale"],
+      "grows":["Revisit Tableau filter mechanics"],
+      "next_steps":["Repeat Tableau lab using a different dimension"]
+    }
+  },
+  "portfolio_artifact": {
+    "deliverable":"Mini-tool demo pack: pivot screenshot, SQL query with result, Tableau PNG, Rmd output",
+    "rubric":["Completeness","Correctness","Reproducibility notes","Documentation quality"],
+    "github_requirements":["/labs/sheets /labs/sql /labs/tableau /labs/r","README with instructions"]
+  },
+  "accessibility":["High-contrast Tableau theme","Captions for tool videos","Text alternatives for images"],
+  "ethics_and_bias":["Document data sources and licenses","Flag limits of samples"],
+  "time_on_task":{"reading":1,"videos":1,"labs":3,"assessments":1}
+}
+```
+
+**Readable rendering:** You will complete a “first lap” across the toolchain used in the Google certificate pathway: spreadsheets, SQL, Tableau, and R. ([Grow with Google][2])
+
+---
+
+### C1-M4 JSON
+
+```json
+{
+  "module_id": "C1-M4",
+  "title": "Ethics, Privacy, and Professional Practice",
+  "hours": 4,
+  "objectives": [
+    "Recognize common ethical risks in analytics workflows",
+    "Apply a lightweight ethics SOP to small scenarios",
+    "Document data provenance and privacy constraints"
+  ],
+  "prerequisites": ["C1-M1"],
+  "success_criteria": [
+    "Submits a completed ethics checklist for a toy dataset",
+    "Explains bias and mitigation in plain language",
+    "Passes a scenario quiz with 80 percent+"
+  ],
+  "personalization": {
+    "grade_level_adaptation": "Undergraduate entry level",
+    "interest_hook": "food",
+    "learning_style_plan": ["visual","kinesthetic"]
+  },
+  "representations": {
+    "immersive_text": {
+      "sections": [
+        {
+          "heading":"Why ethics is part of analysis",
+          "content":"Unintended harm can come from sampling, labeling, proxies, and sharing. Your duty is to anticipate risks, document them, and design safer analyses."
+        },
+        {
+          "heading":"A lightweight SOP you can apply",
+          "content":"Before analysis: define purpose and stakeholders. During: document provenance, transformations, privacy controls. After: record limits and potential impacts."
+        }
+      ],
+      "embedded_questions": [
+        {
+          "anchor_section":"A lightweight SOP you can apply",
+          "mcq":{
+            "stem":"Which action best reduces re-identification risk in a small food-delivery dataset?",
+            "choices":["Share raw addresses","Aggregate to ZIP and remove rare combinations","Publish full order logs","Store PII in plain text"],
+            "answer":"Aggregate to ZIP and remove rare combinations",
+            "why":"Aggregation and k-anonymity reduce linkage risk."
+          }
+        }
+      ],
+      "timeline": ["Purpose","Provenance","Privacy controls","Bias checks","Limitations"],
+      "mnemonic":{"topic":"Ethics SOP","sentence":"Proper Provenance Protects, Biases Balanced, Limits Listed"}
+    },
+    "narrated_slides": {
+      "slides":[
+        {"title":"Types of bias","bullets":["Sampling","Measurement","Historical"],"speaker_notes":"Name the bias, detect its mechanism, choose a mitigation such as re-sampling or re-weighting."},
+        {"title":"Privacy basics","bullets":["Minimize","Aggregate","Control access"],"speaker_notes":"Default to least data, store only what you need, and document who has access and why."}
+      ]
+    },
+    "audio_lesson_script": {
+      "dialogue":[
+        {"role":"Teacher","text":"Our sandwich-chain cohort includes rare orders tied to single households. What do we do?"},
+        {"role":"Student","text":"Aggregate or suppress low-frequency combinations, then re-check utility."}
+      ],
+      "misconception_checks":["Thinking consent covers all reuse","Equating anonymization with zero risk"]
+    },
+    "mind_map":{
+      "root":"Ethics and privacy",
+      "nodes":[
+        {"parent":"root","label":"Bias"},
+        {"parent":"root","label":"Provenance"},
+        {"parent":"root","label":"Privacy controls"}
+      ]
+    }
+  },
+  "hands_on": {
+    "labs":[
+      {"tool":"Sheets","task":"Apply an ethics checklist to a toy delivery dataset","dataset":"Food orders toy","check":"All checklist items answered with rationale"},
+      {"tool":"SQL","task":"Aggregate to ZIP and suppress k<5 groups","dataset":"Food orders toy","check":"No group with count under 5 remains"}
+    ],
+    "datasets":[
+      {"name":"Food Delivery Orders (toy)","source":"Synthesized for instruction","license":"CC BY 4.0","link":""}
+    ]
+  },
+  "adaptive_quiz":{
+    "items":[
+      {"id":"m4-q1","difficulty":"easy","type":"mcq","stem":"What is the first step in an ethical review?","answer":"Define purpose and stakeholders","rationale":"Clarity of purpose precedes controls."},
+      {"id":"m4-q2","difficulty":"hard","type":"short","stem":"Name one privacy control and one trade-off.","answer":"Aggregation reduces risk but may hide small-sample patterns.","rationale":"Controls often reduce utility."}
+    ],
+    "summary_feedback":{
+      "glows":["Good application of aggregation for privacy"],
+      "grows":["Deeper articulation of bias mechanisms"],
+      "next_steps":["Revisit bias types and add mitigations to your SOP"]
+    }
+  },
+  "portfolio_artifact":{
+    "deliverable":"Two-page ethics SOP and risk log for the toy dataset",
+    "rubric":["Coverage of risks","Quality of mitigations","Clarity and tone","Provenance documentation"],
+    "github_requirements":["/ethics/sop.md /ethics/risk-log.md","README linking artifacts"]
+  },
+  "accessibility":["High-contrast palettes","Readable text alternatives","Captions for narration"],
+  "ethics_and_bias":["Guard against dataset stereotypes","Clarify consent and purpose of use"],
+  "time_on_task":{"reading":1,"videos":0.5,"labs":1.5,"assessments":1}
+}
+```
+
+**Readable rendering:** You will operationalize ethics with a simple SOP and show that you can balance privacy with utility through aggregation and suppression.
+
+---
+
+## Course 1 capstone: Personal Learning Roadmap
+
+**Description:** Build a 1 to 2 page roadmap that states your target analyst role, the three skills you will prioritize, the datasets you will use for practice, and the exact artifacts you will ship in later courses. Tie each skill to an assessment plan.
+
+**Expected artifacts:**
+
+* Roadmap PDF and a short 2-slide deck, plus a one-paragraph GitHub README.
+* Links to one dataset you plan to use from Kaggle or Google Dataset Search.
+* A self-quiz plan: 10 questions you will answer at the end of Phase 2.
+  This capstone closes the loop on personalization and sets up multi-view learning, consistent with the Learn Your Way approach of synchronized modalities and embedded assessment.
+
+**Grading for Course 1 only:**
+
+* Adaptive quizzes: 20 percent
+* Hands-on labs bundle: 30 percent
+* Capstone roadmap: 30 percent
+* Presentation of roadmap: 20 percent
+  Use Glows and Grows comments on each submission to guide iteration.
+
+---
+
+## Delivery notes for platforms
+
+* **Bind the views:** Render immersive text by section; place a “Switch view” control to jump to narrated slides, audio dialogue, or mind map of the same content. This mirrors Learn Your Way’s synchronized representations pattern.
+* **Formative assessment:** Enable embedded questions inline and a section-level quiz that returns a score plus Glows and Grows, then adjust the next item’s difficulty.
+* **Tool parity with Google pathway:** Ensure learners can open sample Tableau workbooks, run basic SQL queries, and preview an R Markdown, matching the stack in Google’s Data Analytics Certificate. ([Grow with Google][2])
+
+---
+
+## Sources used for design alignment
+
+* Google Research overview of Learn Your Way: personalization first, then multiple synchronized views with immersive text, quizzes, slides with narration, audio lessons, and mind maps. ([Google Research][1])
+* Learn Your Way tech report excerpts: two-step generation, synchronized modalities, embedded questions, section-level quizzes with Glows and Grows, and retention gains in RCT.
+* Google Data Analytics Certificate: tools and course sequence referenced for parity. ([Grow with Google][2])
+
+If you want me to generate Course 2 in the same format next, say “Go Course 2” and I will deliver it with the same rigor.
+
+[1]: https://research.google/blog/learn-your-way-reimagining-textbooks-with-generative-ai/?utm_source=chatgpt.com "Learn Your Way: Reimagining textbooks with generative AI"
+[2]: https://grow.google/certificates/data-analytics/?utm_source=chatgpt.com "Data Analytics Certificate & Training - Grow with Google"

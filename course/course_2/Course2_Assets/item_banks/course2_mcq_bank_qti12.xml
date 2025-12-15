@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop>
+  <objectbank ident="C2_MCQ_Bank" title="Course 2 MCQ Bank">
+    <item ident="C2M1-1" title="C2-M1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which element is missing from this question: 'Increase weekly revenue by 10%'?</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Cohort/segment</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">Target metric</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">Time window</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">Decision owner</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M1-2" title="C2-M1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Best metric for activation quality of new users:</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Total sessions</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">7-day retention for new users</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">All-time revenue</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">Pageviews</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M1-4" title="C2-M1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which risk most threatens validity of a signup conversion metric?</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Timeboxing to one week</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">Composition shift in traffic sources</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">Using a rolling average</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">Labeling axes</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M1-5" title="C2-M1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Where should you place a predicate that would null-kill a LEFT join you intend to preserve?</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">WHERE clause</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">JOIN condition</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">GROUP BY</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">HAVING</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M1-7" title="C2-M1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which is the best backlog entry?</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">'Find insights on users'</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">'Increase MAU fast'</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">'Compute D7 retention for new Android users in May to decide onboarding change'</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">'Build more charts'</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M1-8" title="C2-M1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A falsifiable hypothesis is preferred because:</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">It guarantees success</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">It can be disproven with evidence</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">It reduces sample size</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">It avoids stakeholders</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M2-1" title="C2-M2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Where should the explicit recommendation live in a short deck?</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Appendix only</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">Title of the final slide and repeated in notes</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">Hidden in speaker notes</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">Not included</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M2-2" title="C2-M2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A common visual integrity risk in before/after charts is:</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Consistent scales</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">Changing y-axis scale to exaggerate change</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">Annotating baseline</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">Showing uncertainty bands</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M2-4" title="C2-M2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which headline is most decision-ready?</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">'Engagement up'</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">'North +12% after April; replicate training in South'</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">'Charts updated'</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">'Small uplift observed'</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M2-5" title="C2-M2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">To avoid cherry-picking, you should:</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Show only best region</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">Shorten window to the best week</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">State selection rules and show full period with highlights</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">Hide filters</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M2-7" title="C2-M2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">When your cohort composition changes between periods, you should:</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Ignore it</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">Use like-for-like comparison or control</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">Switch to pie charts</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">Hide the note</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="C2M2-8" title="C2-M2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which encoding best suits monthly sales over time?</mattext>
+        </material>
+        <response_lid ident="resp" rcardinality="Single">
+          <render_choice>
+            <response_label ident="c1"><material><mattext texttype="text/plain">Pie chart</mattext></material></response_label>
+            <response_label ident="c2"><material><mattext texttype="text/plain">3D surface</mattext></material></response_label>
+            <response_label ident="c3"><material><mattext texttype="text/plain">Line chart</mattext></material></response_label>
+            <response_label ident="c4"><material><mattext texttype="text/plain">stacked area with 15 categories by default</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1"/></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="resp">c3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+  </objectbank>
+</questestinterop>

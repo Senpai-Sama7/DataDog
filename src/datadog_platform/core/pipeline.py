@@ -52,6 +52,7 @@ class Pipeline(BaseConfig):
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
+
     def add_source(self, source: DataSource) -> None:
         """
         Add a data source to the pipeline.
@@ -168,7 +169,26 @@ class Pipeline(BaseConfig):
 
         # Placeholder for actual execution
         # This will be implemented with proper executor
-        context.status = ExecutionStatus.SUCCESS
-        context.ended_at = datetime.now(timezone.utc)
-
-        return context
+        if executor:
+            # Use provided executor
+            import asyncio
+            if asyncio.iscoroutinefunction(executor.execute_dag):
+                # If executor supports async execution
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                try:
+                    dag = self.build_dag()
+                    result = loop.run_until_complete(executor.execute_dag(dag, context))
+                    return context
+                finally:
+                    loop.close()
+            else:
+                # Use synchronous execution
+                dag = self.build_dag()
+                result = executor.execute_dag(dag, context)
+                return context
+        else:
+            # Use default behavior
+            context.status = ExecutionStatus.SUCCESS
+            context.ended_at = datetime.now(timezone.utc)
+            return context

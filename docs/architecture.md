@@ -127,7 +127,7 @@ Multiple execution backends support different deployment scenarios:
 
 Robust state management ensures reliability and enables recovery:
 
-- **Metadata Store**: PostgreSQL database storing pipeline definitions, execution history
+- **Metadata Store**: PostgreSQL database storing pipeline definitions, execution history (implemented)
 - **State Store**: Redis for caching, locks, and ephemeral state
 - **Checkpointing**: Regular state snapshots for recovery
 - **Lineage Tracking**: Complete data lineage from source to destination

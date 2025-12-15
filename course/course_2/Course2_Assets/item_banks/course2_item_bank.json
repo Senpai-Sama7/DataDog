@@ -1,0 +1,274 @@
+[
+  {
+    "id": "C2M1-1",
+    "module": "C2-M1",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Which element is missing from this question: 'Increase weekly revenue by 10%'?",
+    "options": [
+      "Cohort/segment",
+      "Target metric",
+      "Time window",
+      "Decision owner"
+    ],
+    "answer": "Cohort/segment",
+    "rationale": "SMART requires a clearly defined audience or segment.",
+    "tags": [
+      "SMART",
+      "cohort"
+    ]
+  },
+  {
+    "id": "C2M1-2",
+    "module": "C2-M1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Best metric for activation quality of new users:",
+    "options": [
+      "Total sessions",
+      "7-day retention for new users",
+      "All-time revenue",
+      "Pageviews"
+    ],
+    "answer": "7-day retention for new users",
+    "rationale": "Activation quality should be measured on a defined new-user cohort.",
+    "tags": [
+      "retention",
+      "activation"
+    ]
+  },
+  {
+    "id": "C2M1-3",
+    "module": "C2-M1",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "A minimal analysis designed to quickly change or confirm a decision is called a ______ analysis.",
+    "options": [],
+    "answer": "smallest",
+    "rationale": "Start with the smallest analysis that could change the decision.",
+    "tags": [
+      "decision_first"
+    ]
+  },
+  {
+    "id": "C2M1-4",
+    "module": "C2-M1",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Which risk most threatens validity of a signup conversion metric?",
+    "options": [
+      "Timeboxing to one week",
+      "Composition shift in traffic sources",
+      "Using a rolling average",
+      "Labeling axes"
+    ],
+    "answer": "Composition shift in traffic sources",
+    "rationale": "Compare like-for-like cohorts to avoid misleading improvements.",
+    "tags": [
+      "bias",
+      "cohort"
+    ]
+  },
+  {
+    "id": "C2M1-5",
+    "module": "C2-M1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Where should you place a predicate that would null-kill a LEFT join you intend to preserve?",
+    "options": [
+      "WHERE clause",
+      "JOIN condition",
+      "GROUP BY",
+      "HAVING"
+    ],
+    "answer": "JOIN condition",
+    "rationale": "Predicates on the right table in WHERE can turn LEFT into INNER.",
+    "tags": [
+      "sql",
+      "joins"
+    ]
+  },
+  {
+    "id": "C2M1-6",
+    "module": "C2-M1",
+    "difficulty": "easy",
+    "type": "fitb",
+    "stem": "In a stakeholder interview, always confirm the ______ and the deadline.",
+    "options": [],
+    "answer": "decision owner",
+    "rationale": "Clarify who decides and by when.",
+    "tags": [
+      "stakeholders"
+    ]
+  },
+  {
+    "id": "C2M1-7",
+    "module": "C2-M1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which is the best backlog entry?",
+    "options": [
+      "'Find insights on users'",
+      "'Increase MAU fast'",
+      "'Compute D7 retention for new Android users in May to decide onboarding change'",
+      "'Build more charts'"
+    ],
+    "answer": "'Compute D7 retention for new Android users in May to decide onboarding change'",
+    "rationale": "Specific metric, cohort, time window, and decision context.",
+    "tags": [
+      "backlog"
+    ]
+  },
+  {
+    "id": "C2M1-8",
+    "module": "C2-M1",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "A falsifiable hypothesis is preferred because:",
+    "options": [
+      "It guarantees success",
+      "It can be disproven with evidence",
+      "It reduces sample size",
+      "It avoids stakeholders"
+    ],
+    "answer": "It can be disproven with evidence",
+    "rationale": "Design to falsify risky assumptions quickly.",
+    "tags": [
+      "methodology"
+    ]
+  },
+  {
+    "id": "C2M2-1",
+    "module": "C2-M2",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Where should the explicit recommendation live in a short deck?",
+    "options": [
+      "Appendix only",
+      "Title of the final slide and repeated in notes",
+      "Hidden in speaker notes",
+      "Not included"
+    ],
+    "answer": "Title of the final slide and repeated in notes",
+    "rationale": "Stakeholders should see it clearly.",
+    "tags": [
+      "storytelling"
+    ]
+  },
+  {
+    "id": "C2M2-2",
+    "module": "C2-M2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "A common visual integrity risk in before/after charts is:",
+    "options": [
+      "Consistent scales",
+      "Changing y-axis scale to exaggerate change",
+      "Annotating baseline",
+      "Showing uncertainty bands"
+    ],
+    "answer": "Changing y-axis scale to exaggerate change",
+    "rationale": "Keep scales comparable or disclose changes.",
+    "tags": [
+      "visual_integrity"
+    ]
+  },
+  {
+    "id": "C2M2-3",
+    "module": "C2-M2",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "Every chart must have labeled ______ and units where applicable.",
+    "options": [],
+    "answer": "axes",
+    "rationale": "Labels improve clarity and honesty.",
+    "tags": [
+      "charts"
+    ]
+  },
+  {
+    "id": "C2M2-4",
+    "module": "C2-M2",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Which headline is most decision-ready?",
+    "options": [
+      "'Engagement up'",
+      "'North +12% after April; replicate training in South'",
+      "'Charts updated'",
+      "'Small uplift observed'"
+    ],
+    "answer": "'North +12% after April; replicate training in South'",
+    "rationale": "States change and action.",
+    "tags": [
+      "headlines"
+    ]
+  },
+  {
+    "id": "C2M2-5",
+    "module": "C2-M2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "To avoid cherry-picking, you should:",
+    "options": [
+      "Show only best region",
+      "Shorten window to the best week",
+      "State selection rules and show full period with highlights",
+      "Hide filters"
+    ],
+    "answer": "State selection rules and show full period with highlights",
+    "rationale": "Declare criteria and context.",
+    "tags": [
+      "ethics"
+    ]
+  },
+  {
+    "id": "C2M2-6",
+    "module": "C2-M2",
+    "difficulty": "easy",
+    "type": "fitb",
+    "stem": "The single sentence that tops each slide is the ______.",
+    "options": [],
+    "answer": "headline",
+    "rationale": "One takeaway per slide.",
+    "tags": [
+      "slides"
+    ]
+  },
+  {
+    "id": "C2M2-7",
+    "module": "C2-M2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "When your cohort composition changes between periods, you should:",
+    "options": [
+      "Ignore it",
+      "Use like-for-like comparison or control",
+      "Switch to pie charts",
+      "Hide the note"
+    ],
+    "answer": "Use like-for-like comparison or control",
+    "rationale": "Composition shifts can fake improvements.",
+    "tags": [
+      "cohorts"
+    ]
+  },
+  {
+    "id": "C2M2-8",
+    "module": "C2-M2",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Which encoding best suits monthly sales over time?",
+    "options": [
+      "Pie chart",
+      "3D surface",
+      "Line chart",
+      "stacked area with 15 categories by default"
+    ],
+    "answer": "Line chart",
+    "rationale": "Time series \u2192 line or column with care.",
+    "tags": [
+      "encodings"
+    ]
+  }
+]

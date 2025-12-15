@@ -1,0 +1,1114 @@
+[
+  {
+    "id": "3.1-1",
+    "module": "3.1",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Which best describes a foreign key (FK)?",
+    "options": [
+      "A unique identifier within its own table",
+      "A field referencing a primary key in another table",
+      "A free-text attribute with no constraints"
+    ],
+    "answer": "A field referencing a primary key in another table",
+    "rationale": "FKs reference PKs of other tables to maintain relationships.",
+    "tags": [
+      "keys",
+      "relationships"
+    ]
+  },
+  {
+    "id": "3.1-2",
+    "module": "3.1",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "A many-to-many relationship is typically modeled using:",
+    "options": [
+      "Composite keys only",
+      "A junction table with two FKs",
+      "Two LEFT JOINs without constraints"
+    ],
+    "answer": "A junction table with two FKs",
+    "rationale": "A bridge (junction) table holds FKs to each parent.",
+    "tags": [
+      "cardinality",
+      "schema"
+    ]
+  },
+  {
+    "id": "3.1-3",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "CSV files are generally considered:",
+    "options": [
+      "Structured with enforced schema",
+      "Semi-structured",
+      "Unstructured binary"
+    ],
+    "answer": "Semi-structured",
+    "rationale": "CSV lacks enforced types but is tabular-like.",
+    "tags": [
+      "files",
+      "formats"
+    ]
+  },
+  {
+    "id": "3.1-4",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "NULL is closest in meaning to:",
+    "options": [
+      "Zero",
+      "Empty string",
+      "Missing or unknown value"
+    ],
+    "answer": "Missing or unknown value",
+    "rationale": "NULL indicates absence of a value, not zero or empty text.",
+    "tags": [
+      "nulls"
+    ]
+  },
+  {
+    "id": "3.1-5",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Choose the strongest primary key for People:",
+    "options": [
+      "FullName",
+      "Email address that can change",
+      "PersonID surrogate integer"
+    ],
+    "answer": "PersonID surrogate integer",
+    "rationale": "Stability and uniqueness favor surrogate keys.",
+    "tags": [
+      "keys"
+    ]
+  },
+  {
+    "id": "3.1-6",
+    "module": "3.1",
+    "difficulty": "easy",
+    "type": "fitb",
+    "stem": "Referential integrity ensures every FK points to an existing ______.",
+    "options": [],
+    "answer": "PK",
+    "rationale": "Each foreign key should match a valid primary key.",
+    "tags": [
+      "integrity"
+    ]
+  },
+  {
+    "id": "3.1-7",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Cardinality 'one-to-many' means:",
+    "options": [
+      "Each parent row matches zero or many child rows",
+      "Each child row matches zero or many parent rows",
+      "Each parent matches at most one child"
+    ],
+    "answer": "Each parent row matches zero or many child rows",
+    "rationale": "One-to-many from parent to children.",
+    "tags": [
+      "cardinality"
+    ]
+  },
+  {
+    "id": "3.1-8",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which constraint prevents duplicate values in a column?",
+    "options": [
+      "NOT NULL",
+      "UNIQUE",
+      "CHECK"
+    ],
+    "answer": "UNIQUE",
+    "rationale": "UNIQUE enforces distinct values.",
+    "tags": [
+      "constraints"
+    ]
+  },
+  {
+    "id": "3.1-9",
+    "module": "3.1",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "A composite primary key is appropriate when:",
+    "options": [
+      "A single column can uniquely identify rows",
+      "Uniqueness requires a combination of columns",
+      "We want to reduce storage"
+    ],
+    "answer": "Uniqueness requires a combination of columns",
+    "rationale": "Composite PKs model uniqueness across multiple fields.",
+    "tags": [
+      "keys"
+    ]
+  },
+  {
+    "id": "3.1-10",
+    "module": "3.1",
+    "difficulty": "easy",
+    "type": "fitb",
+    "stem": "A column permitted to have no value is recorded as ______.",
+    "options": [],
+    "answer": "NULL",
+    "rationale": "NULL denotes missing value.",
+    "tags": [
+      "nulls"
+    ]
+  },
+  {
+    "id": "3.1-11",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Surrogate keys are preferred when natural keys:",
+    "options": [
+      "Are stable and short",
+      "May change or be reused",
+      "Are already numeric"
+    ],
+    "answer": "May change or be reused",
+    "rationale": "Changing natural keys break references.",
+    "tags": [
+      "keys"
+    ]
+  },
+  {
+    "id": "3.1-12",
+    "module": "3.1",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Choose the best FK from Orders to Customers:",
+    "options": [
+      "Orders.email -> Customers.email",
+      "Orders.customer_id -> Customers.customer_id",
+      "Orders.region -> Customers.region"
+    ],
+    "answer": "Orders.customer_id -> Customers.customer_id",
+    "rationale": "Use immutable surrogate keys rather than derived attributes.",
+    "tags": [
+      "keys"
+    ]
+  },
+  {
+    "id": "3.1-13",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which is true about JSON in analytics pipelines?",
+    "options": [
+      "Always normalized by default",
+      "Often semi-structured, needs schema-on-read",
+      "Binary-only"
+    ],
+    "answer": "Often semi-structured, needs schema-on-read",
+    "rationale": "JSON commonly parsed into typed columns.",
+    "tags": [
+      "json",
+      "formats"
+    ]
+  },
+  {
+    "id": "3.1-14",
+    "module": "3.1",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Which field is most likely categorical?",
+    "options": [
+      "Order total",
+      "Region",
+      "Timestamp"
+    ],
+    "answer": "Region",
+    "rationale": "Regions are discrete categories.",
+    "tags": [
+      "types"
+    ]
+  },
+  {
+    "id": "3.1-15",
+    "module": "3.1",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "To model many-to-many between Orders and Promotions you should:",
+    "options": [
+      "Add promo_code column in Orders only",
+      "Create OrderPromotions junction table",
+      "Store JSON array in Orders and hope"
+    ],
+    "answer": "Create OrderPromotions junction table",
+    "rationale": "Junction tables scale to multiple promos.",
+    "tags": [
+      "schema"
+    ]
+  },
+  {
+    "id": "3.1-16",
+    "module": "3.1",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "A field designed to never be NULL should be declared ______.",
+    "options": [],
+    "answer": "NOT NULL",
+    "rationale": "NOT NULL enforces presence.",
+    "tags": [
+      "constraints"
+    ]
+  },
+  {
+    "id": "3.2-1",
+    "module": "3.2",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Which clause specifies source tables?",
+    "options": [
+      "SELECT",
+      "FROM",
+      "WHERE"
+    ],
+    "answer": "FROM",
+    "rationale": "Tables are listed in FROM.",
+    "tags": [
+      "select"
+    ]
+  },
+  {
+    "id": "3.2-2",
+    "module": "3.2",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Filter rows before aggregation with:",
+    "options": [
+      "WHERE",
+      "HAVING",
+      "GROUP BY"
+    ],
+    "answer": "WHERE",
+    "rationale": "WHERE filters pre-aggregation.",
+    "tags": [
+      "where"
+    ]
+  },
+  {
+    "id": "3.2-3",
+    "module": "3.2",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Filter groups after aggregation with:",
+    "options": [
+      "WHERE",
+      "HAVING",
+      "ORDER BY"
+    ],
+    "answer": "HAVING",
+    "rationale": "HAVING filters on aggregates.",
+    "tags": [
+      "having"
+    ]
+  },
+  {
+    "id": "3.2-4",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "LEFT JOIN preserves:",
+    "options": [
+      "Only matches",
+      "All left rows plus matches",
+      "All right rows"
+    ],
+    "answer": "All left rows plus matches",
+    "rationale": "LEFT keeps unmatched left rows with NULLs on right.",
+    "tags": [
+      "joins"
+    ]
+  },
+  {
+    "id": "3.2-5",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "To limit result length use ______.",
+    "options": [],
+    "answer": "LIMIT",
+    "rationale": "LIMIT caps rows.",
+    "tags": [
+      "limit"
+    ]
+  },
+  {
+    "id": "3.2-6",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Aggregate counting non-NULL values:",
+    "options": [
+      "COUNT(*)",
+      "COUNT(col)",
+      "SUM(col)"
+    ],
+    "answer": "COUNT(col)",
+    "rationale": "COUNT(col) skips NULLs.",
+    "tags": [
+      "aggregate"
+    ]
+  },
+  {
+    "id": "3.2-7",
+    "module": "3.2",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "A predicate on the right table in a LEFT JOIN should often live in:",
+    "options": [
+      "WHERE",
+      "JOIN condition",
+      "ORDER BY"
+    ],
+    "answer": "JOIN condition",
+    "rationale": "Putting it in WHERE can turn LEFT into INNER.",
+    "tags": [
+      "joins"
+    ]
+  },
+  {
+    "id": "3.2-8",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Choose the correct GROUP BY:",
+    "options": [
+      "SELECT region, SUM(sales) FROM t GROUP BY region",
+      "SELECT region, SUM(sales) FROM t GROUP BY sales"
+    ],
+    "answer": "SELECT region, SUM(sales) FROM t GROUP BY region",
+    "rationale": "Group on non-aggregated columns.",
+    "tags": [
+      "groupby"
+    ]
+  },
+  {
+    "id": "3.2-9",
+    "module": "3.2",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Identify the result of COUNT(*) on a LEFT join with unmatched rows:",
+    "options": [
+      "Counts only matches",
+      "Counts left rows including unmatched",
+      "Counts only right rows"
+    ],
+    "answer": "Counts left rows including unmatched",
+    "rationale": "Unmatched still appear.",
+    "tags": [
+      "joins"
+    ]
+  },
+  {
+    "id": "3.2-10",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "A subquery in FROM requires a table ______.",
+    "options": [],
+    "answer": "alias",
+    "rationale": "Every derived table needs an alias.",
+    "tags": [
+      "subquery"
+    ]
+  },
+  {
+    "id": "3.2-11",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which orders query lists top 10 customers by revenue?",
+    "options": [
+      "ORDER BY SUM(total) DESC LIMIT 10 with GROUP BY customer_id",
+      "LIMIT 10 without ORDER BY",
+      "ORDER BY customer_id LIMIT 10"
+    ],
+    "answer": "ORDER BY SUM(total) DESC LIMIT 10 with GROUP BY customer_id",
+    "rationale": "Rank by aggregated revenue.",
+    "tags": [
+      "ranking"
+    ]
+  },
+  {
+    "id": "3.2-12",
+    "module": "3.2",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Which window function previews appear later?",
+    "options": [
+      "SUM() OVER(PARTITION BY ... ORDER BY ...)",
+      "SUM()",
+      "HAVING SUM()>1000"
+    ],
+    "answer": "SUM() OVER(PARTITION BY ... ORDER BY ...)",
+    "rationale": "Window functions compute over partitions.",
+    "tags": [
+      "window"
+    ]
+  },
+  {
+    "id": "3.2-13",
+    "module": "3.2",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Which clause sorts results?",
+    "options": [
+      "GROUP BY",
+      "ORDER BY",
+      "DISTINCT"
+    ],
+    "answer": "ORDER BY",
+    "rationale": "ORDER BY controls sort.",
+    "tags": [
+      "orderby"
+    ]
+  },
+  {
+    "id": "3.2-14",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Safest join key between orders and customers:",
+    "options": [
+      "email",
+      "customer_id",
+      "region"
+    ],
+    "answer": "customer_id",
+    "rationale": "Use stable surrogate.",
+    "tags": [
+      "joins",
+      "keys"
+    ]
+  },
+  {
+    "id": "3.2-15",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "To exclude cancelled orders after aggregation, prefer:",
+    "options": [
+      "WHERE status<>'Cancelled' before GROUP BY",
+      "HAVING status<>'Cancelled'"
+    ],
+    "answer": "WHERE status<>'Cancelled' before GROUP BY",
+    "rationale": "Filter early unless based on aggregate.",
+    "tags": [
+      "where"
+    ]
+  },
+  {
+    "id": "3.2-16",
+    "module": "3.2",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Pick the correct subquery usage:",
+    "options": [
+      "SELECT * FROM (SELECT * FROM t) as x",
+      "SELECT * FROM (SELECT * FROM t)",
+      "SELECT * FROM SELECT *"
+    ],
+    "answer": "SELECT * FROM (SELECT * FROM t) as x",
+    "rationale": "Alias is required.",
+    "tags": [
+      "subquery"
+    ]
+  },
+  {
+    "id": "3.2-17",
+    "module": "3.2",
+    "difficulty": "easy",
+    "type": "fitb",
+    "stem": "To remove duplicate rows use ______.",
+    "options": [],
+    "answer": "DISTINCT",
+    "rationale": "DISTINCT collapses duplicates.",
+    "tags": [
+      "distinct"
+    ]
+  },
+  {
+    "id": "3.2-18",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which count gets unique customers per region?",
+    "options": [
+      "COUNT(customer_id)",
+      "COUNT(DISTINCT customer_id)",
+      "SUM(customer_id)"
+    ],
+    "answer": "COUNT(DISTINCT customer_id)",
+    "rationale": "Distinct counts unique values.",
+    "tags": [
+      "distinct"
+    ]
+  },
+  {
+    "id": "3.2-19",
+    "module": "3.2",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Which join returns only matches?",
+    "options": [
+      "LEFT",
+      "RIGHT",
+      "INNER"
+    ],
+    "answer": "INNER",
+    "rationale": "INNER returns matches only.",
+    "tags": [
+      "joins"
+    ]
+  },
+  {
+    "id": "3.2-20",
+    "module": "3.2",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which is valid comment in SQL (SQLite/Postgres)?",
+    "options": [
+      "// comment",
+      "-- comment",
+      "/**/ not allowed"
+    ],
+    "answer": "-- comment",
+    "rationale": "Double-dash comments.",
+    "tags": [
+      "syntax"
+    ]
+  },
+  {
+    "id": "3.3-1",
+    "module": "3.3",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Best tool to summarize Sales by Region by Month quickly:",
+    "options": [
+      "Manual sums",
+      "Pivot table",
+      "SQL only"
+    ],
+    "answer": "Pivot table",
+    "rationale": "Pivots summarize quickly.",
+    "tags": [
+      "pivot"
+    ]
+  },
+  {
+    "id": "3.3-2",
+    "module": "3.3",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Validation helps you:",
+    "options": [
+      "Prevent invalid entries",
+      "Format fonts",
+      "Plot charts"
+    ],
+    "answer": "Prevent invalid entries",
+    "rationale": "Validation restricts inputs.",
+    "tags": [
+      "validation"
+    ]
+  },
+  {
+    "id": "3.3-3",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "COUNT of unique IDs in a pivot often needs:",
+    "options": [
+      "Calculated field or distinct approach",
+      "More colors",
+      "Merged cells"
+    ],
+    "answer": "Calculated field or distinct approach",
+    "rationale": "Distinct counts vary by tool.",
+    "tags": [
+      "pivot"
+    ]
+  },
+  {
+    "id": "3.3-4",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "Named ranges make formulas more ______.",
+    "options": [],
+    "answer": "readable",
+    "rationale": "Clarity and maintainability.",
+    "tags": [
+      "ranges"
+    ]
+  },
+  {
+    "id": "3.3-5",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which lookup is robust and non-volatile?",
+    "options": [
+      "INDEX/MATCH or XLOOKUP",
+      "OFFSET/MATCH",
+      "INDIRECT"
+    ],
+    "answer": "INDEX/MATCH or XLOOKUP",
+    "rationale": "Prefer non-volatile functions.",
+    "tags": [
+      "lookup"
+    ]
+  },
+  {
+    "id": "3.3-6",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "To refresh a pivot after data change:",
+    "options": [
+      "Rebuild manually",
+      "Refresh pivot",
+      "Reboot app"
+    ],
+    "answer": "Refresh pivot",
+    "rationale": "Use Refresh to update.",
+    "tags": [
+      "pivot"
+    ]
+  },
+  {
+    "id": "3.3-7",
+    "module": "3.3",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Your pivot double counts revenue. Likely cause:",
+    "options": [
+      "Wrong number format",
+      "Duplicates in source grain",
+      "Missing colors"
+    ],
+    "answer": "Duplicates in source grain",
+    "rationale": "Aggregate at correct grain.",
+    "tags": [
+      "grain"
+    ]
+  },
+  {
+    "id": "3.3-8",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Percent-of-total is best for:",
+    "options": [
+      "Share comparisons",
+      "Exact values only",
+      "Random noise"
+    ],
+    "answer": "Share comparisons",
+    "rationale": "Use carefully with clear base.",
+    "tags": [
+      "formatting"
+    ]
+  },
+  {
+    "id": "3.3-9",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "To slice pivots interactively add ______.",
+    "options": [],
+    "answer": "slicers",
+    "rationale": "Slicers control filters.",
+    "tags": [
+      "pivot"
+    ]
+  },
+  {
+    "id": "3.3-10",
+    "module": "3.3",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Keep source data tidy by:",
+    "options": [
+      "Merging header rows",
+      "Single header row no blanks",
+      "Splitting tables across sheets"
+    ],
+    "answer": "Single header row no blanks",
+    "rationale": "Tidy data improves pivots.",
+    "tags": [
+      "tidydata"
+    ]
+  },
+  {
+    "id": "3.3-11",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Which chart works well with monthly sales:",
+    "options": [
+      "Pie for 24 months",
+      "Line chart",
+      "3D surface"
+    ],
+    "answer": "Line chart",
+    "rationale": "Time series suits lines.",
+    "tags": [
+      "charting"
+    ]
+  },
+  {
+    "id": "3.3-12",
+    "module": "3.3",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "A volatile function to avoid in large models:",
+    "options": [
+      "INDIRECT",
+      "SUM",
+      "AVERAGE"
+    ],
+    "answer": "INDIRECT",
+    "rationale": "Volatile recalcs frequently.",
+    "tags": [
+      "performance"
+    ]
+  },
+  {
+    "id": "3.3-13",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "In Excel Data Model, multiple tables relate via:",
+    "options": [
+      "Pivot cache only",
+      "Relationships",
+      "Macros"
+    ],
+    "answer": "Relationships",
+    "rationale": "Data Model adds relationships.",
+    "tags": [
+      "datamodel"
+    ]
+  },
+  {
+    "id": "3.3-14",
+    "module": "3.3",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "To format numbers consistently:",
+    "options": [
+      "Apply number formats",
+      "Change font",
+      "Add emojis"
+    ],
+    "answer": "Apply number formats",
+    "rationale": "Use currency, percent, etc.",
+    "tags": [
+      "formatting"
+    ]
+  },
+  {
+    "id": "3.3-15",
+    "module": "3.3",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Sheets API can create:",
+    "options": [
+      "Pivot tables programmatically",
+      "Only charts",
+      "Only raw CSV"
+    ],
+    "answer": "Pivot tables programmatically",
+    "rationale": "API supports pivot creation.",
+    "tags": [
+      "sheets_api"
+    ]
+  },
+  {
+    "id": "3.3-16",
+    "module": "3.3",
+    "difficulty": "hard",
+    "type": "fitb",
+    "stem": "Consider the correct ______ when aggregating to avoid Simpson's paradox.",
+    "options": [],
+    "answer": "grain",
+    "rationale": "Right level of aggregation matters.",
+    "tags": [
+      "ethics",
+      "analysis"
+    ]
+  },
+  {
+    "id": "3.4-1",
+    "module": "3.4",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Best design when subgroups must be represented proportionally:",
+    "options": [
+      "Simple random sampling",
+      "Stratified sampling",
+      "Cluster sampling"
+    ],
+    "answer": "Stratified sampling",
+    "rationale": "Strata ensure subgroup representation.",
+    "tags": [
+      "sampling"
+    ]
+  },
+  {
+    "id": "3.4-2",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Cluster sampling typically trades precision for:",
+    "options": [
+      "Lower cost/logistics",
+      "Higher variance only",
+      "No tradeoffs"
+    ],
+    "answer": "Lower cost/logistics",
+    "rationale": "Clusters reduce travel/logistics.",
+    "tags": [
+      "sampling"
+    ]
+  },
+  {
+    "id": "3.4-3",
+    "module": "3.4",
+    "difficulty": "easy",
+    "type": "fitb",
+    "stem": "Selecting every k-th unit is ______ sampling.",
+    "options": [],
+    "answer": "systematic",
+    "rationale": "Systematic samples use a fixed interval.",
+    "tags": [
+      "sampling"
+    ]
+  },
+  {
+    "id": "3.4-4",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "'Universe' in metadata refers to:",
+    "options": [
+      "All possible values of a variable",
+      "Population the study describes",
+      "The file format"
+    ],
+    "answer": "Population the study describes",
+    "rationale": "Universe describes coverage.",
+    "tags": [
+      "metadata"
+    ]
+  },
+  {
+    "id": "3.4-5",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Minimal metadata should include:",
+    "options": [
+      "Title and description",
+      "Random tags only",
+      "Chart screenshot"
+    ],
+    "answer": "Title and description",
+    "rationale": "Core discovery fields are essential.",
+    "tags": [
+      "metadata"
+    ]
+  },
+  {
+    "id": "3.4-6",
+    "module": "3.4",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "When sampling cost per unit varies by stratum, efficient allocation uses:",
+    "options": [
+      "Equal sample per stratum",
+      "Proportional allocation",
+      "Neyman allocation"
+    ],
+    "answer": "Neyman allocation",
+    "rationale": "Neyman weights by size and variance.",
+    "tags": [
+      "sampling"
+    ]
+  },
+  {
+    "id": "3.4-7",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "A biased frame most likely causes:",
+    "options": [
+      "Increased precision",
+      "Coverage error",
+      "Perfect inference"
+    ],
+    "answer": "Coverage error",
+    "rationale": "Frame excludes part of population.",
+    "tags": [
+      "bias"
+    ]
+  },
+  {
+    "id": "3.4-8",
+    "module": "3.4",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "Which is metadata, not data?",
+    "options": [
+      "Variable units",
+      "Survey responses",
+      "Transaction amounts"
+    ],
+    "answer": "Variable units",
+    "rationale": "Units describe data.",
+    "tags": [
+      "metadata"
+    ]
+  },
+  {
+    "id": "3.4-9",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "Record how and when data were collected under ______.",
+    "options": [],
+    "answer": "Provenance",
+    "rationale": "Provenance tracks origin and process.",
+    "tags": [
+      "metadata"
+    ]
+  },
+  {
+    "id": "3.4-10",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Nonresponse bias is reduced by:",
+    "options": [
+      "Ignoring missing cases",
+      "Weighting/Follow-ups",
+      "Deleting variables"
+    ],
+    "answer": "Weighting/Follow-ups",
+    "rationale": "Design and post-processing help.",
+    "tags": [
+      "bias"
+    ]
+  },
+  {
+    "id": "3.4-11",
+    "module": "3.4",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Which sampling plan fits 5 regions with travel constraints?",
+    "options": [
+      "Cluster sampling by region",
+      "SRS nationwide",
+      "Stratified with PPS"
+    ],
+    "answer": "Cluster sampling by region",
+    "rationale": "Clusters reduce travel.",
+    "tags": [
+      "sampling"
+    ]
+  },
+  {
+    "id": "3.4-12",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "Minimal ICPSR-style metadata should also include:",
+    "options": [
+      "Version and version date",
+      "Random emoji",
+      "Email password"
+    ],
+    "answer": "Version and version date",
+    "rationale": "Versioning aids reuse.",
+    "tags": [
+      "metadata"
+    ]
+  },
+  {
+    "id": "3.4-13",
+    "module": "3.4",
+    "difficulty": "easy",
+    "type": "mcq",
+    "stem": "A codebook is closest to:",
+    "options": [
+      "Metadata documentation",
+      "Executable code",
+      "Visualization only"
+    ],
+    "answer": "Metadata documentation",
+    "rationale": "Codebooks describe variables.",
+    "tags": [
+      "metadata"
+    ]
+  },
+  {
+    "id": "3.4-14",
+    "module": "3.4",
+    "difficulty": "hard",
+    "type": "mcq",
+    "stem": "Under cluster sampling, variance usually:",
+    "options": [
+      "Decreases vs SRS for equal n",
+      "Is identical to SRS",
+      "Increases vs SRS for equal n"
+    ],
+    "answer": "Increases vs SRS for equal n",
+    "rationale": "Intra-cluster correlation reduces effective n.",
+    "tags": [
+      "variance"
+    ]
+  },
+  {
+    "id": "3.4-15",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "mcq",
+    "stem": "To protect privacy in metadata:",
+    "options": [
+      "Omit license info",
+      "Avoid PII and note masking",
+      "Publish raw emails"
+    ],
+    "answer": "Avoid PII and note masking",
+    "rationale": "Ethical practice in docs.",
+    "tags": [
+      "ethics"
+    ]
+  },
+  {
+    "id": "3.4-16",
+    "module": "3.4",
+    "difficulty": "medium",
+    "type": "fitb",
+    "stem": "Sampling units are the units ______.",
+    "options": [],
+    "answer": "selected",
+    "rationale": "Sampling units are selected from the frame.",
+    "tags": [
+      "definitions"
+    ]
+  }
+]

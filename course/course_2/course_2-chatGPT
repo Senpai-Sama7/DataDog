@@ -1,0 +1,294 @@
+Locked and loaded. Here is Course 2 in the exact “Learn Your Way” pattern: personalize first, then generate synchronized views with embedded checks. I align naming and scope with Google’s certificate track, and I keep the modalities, quizzes, and “Glows and Grows” feedback that Learn Your Way highlights as key to the retention gain. ([Google Research][1])
+
+# Course 2: Ask Questions to Make Data-Driven Decisions (18 hours)
+
+**Course overview:** This course upgrades learners from vague goals to testable, decision-ready questions and clear stakeholder communication. Each module follows Learn Your Way’s two-stage pipeline: we first adapt the text to the learner’s level and interests, then we emit synchronized representations, including immersive text with embedded questions, narrated slide outlines, audio teacher-student scripts, and mind maps, plus short adaptive quizzes. This aligns with Learn Your Way’s multimodal, personalized experience that showed higher immediate and 3 to 5 day retention. ([Google Research][1])
+**Google parity:** Course title and emphasis match the Google Data Analytics Certificate sequence and descriptions that stress stakeholder communication and structured thinking. ([Grow with Google][2])
+
+**Hours and sequencing:**
+
+* Module 1: 8 hours
+* Module 2: 8 hours
+* Capstone: 2 hours integrated at the end of Module 2 to reach 18 total
+
+**Tools used lightly:** Sheets or Slides for storyboards, SQL sandbox for simple cohort pulls to support a narrative, Tableau screenshots for before or after visuals. This mirrors the toolchain highlighted across the Google certificate. ([Grow with Google][2])
+
+---
+
+## Module table: titles, hours, objectives, prerequisites, success criteria
+
+| Module | Title                                     | Hours | Objectives                                                                                                          | Prereqs    | Success criteria                                                                                |
+| ------ | ----------------------------------------- | ----: | ------------------------------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------- |
+| C2-M1  | Asking Better Questions with Stakeholders |     8 | Convert goals into SMART questions, map decisions to metrics, run stakeholder interviews and clarify constraints    | C1 modules | Produces a ranked question backlog with metrics, cohorts, time windows, risks, and data sources |
+| C2-M2  | Data Storytelling and Narrative Structure |     8 | Build story arcs, design slide-narrative pairs, create before or after comparisons, tailor messages to stakeholders | C2-M1      | Delivers a 6 to 8 slide narrative with clear takeaway, supported by a simple analysis artifact  |
+
+---
+
+# Module packages
+
+Below each JSON object is a concise human-readable rendering. All representations are generated from the personalized source to keep them synchronized, which is a core Learn Your Way design choice. ([Google Research][1])
+
+### C2-M1 JSON
+
+```json
+{
+  "module_id": "C2-M1",
+  "title": "Asking Better Questions with Stakeholders",
+  "hours": 8,
+  "objectives": [
+    "Transform business goals into SMART, decision-ready questions",
+    "Map decisions to metrics, cohorts, and time windows",
+    "Run concise stakeholder interviews and clarify constraints and risks"
+  ],
+  "prerequisites": ["C1-M1", "C1-M2"],
+  "success_criteria": [
+    "Produces a prioritized backlog of 6-10 SMART questions linked to decisions and metrics",
+    "Documents assumptions, data provenance, and risks",
+    "Chooses a minimal analysis path that can falsify or confirm hypotheses"
+  ],
+  "personalization": {
+    "grade_level_adaptation": "Undergraduate entry level",
+    "interest_hook": "business",
+    "learning_style_plan": ["visual", "auditory", "kinesthetic"]
+  },
+  "representations": {
+    "immersive_text": {
+      "sections": [
+        {
+          "heading": "From goals to decisions to questions",
+          "content": "Start with the decision deadline and the person who decides. Translate a goal like 'grow weekly active users' into a SMART question with a target, cohort, and timeframe. Every question must imply a metric and an available dataset."
+        },
+        {
+          "heading": "Stakeholder interviews in 5 moves",
+          "content": "Define outcome, constraints, success signals, deadlines, and acceptable tradeoffs. Capture unknowns as risks. Confirm the metric dictionary to prevent ambiguity."
+        }
+      ],
+      "embedded_questions": [
+        {
+          "anchor_section": "From goals to decisions to questions",
+          "mcq": {
+            "stem": "Which is the best metric for a question about new user activation quality?",
+            "choices": ["Total sessions", "7-day retention for new users", "Total installs", "All-time revenue"],
+            "answer": "7-day retention for new users",
+            "why": "Activation quality should be measured on a defined new-user cohort over a short window."
+          }
+        }
+      ],
+      "timeline": ["Identify decision", "Define metric and cohort", "List constraints", "Draft questions", "Plan analysis"],
+      "mnemonic": {"topic": "Interview flow", "sentence": "Decide, Define, Limit, Draft, Do"}
+    },
+    "narrated_slides": {
+      "slides": [
+        {
+          "title": "Decision first",
+          "bullets": ["Who decides", "By when", "What will change"],
+          "speaker_notes": "Decisions anchor the analysis. Without a decision owner and deadline, questions drift and metrics sprawl."
+        },
+        {
+          "title": "SMART plus risks",
+          "bullets": ["Specific metric and cohort", "Timebox", "Assumptions and risks"],
+          "speaker_notes": "Make risks explicit, then design a minimal analysis to test the riskiest assumption first."
+        }
+      ]
+    },
+    "audio_lesson_script": {
+      "dialogue": [
+        {"role": "Teacher", "text": "Marketing asks for 'more engaged users.' What do you ask first?"},
+        {"role": "Student", "text": "Who is deciding, by when, and which engagement metric matters for that decision."}
+      ],
+      "misconception_checks": ["Picking metrics before clarifying the decision", "Hiding risks and assumptions"]
+    },
+    "mind_map": {
+      "root": "Decision-aligned questioning",
+      "nodes": [
+        {"parent": "root", "label": "Decision owner"},
+        {"parent": "root", "label": "Deadline"},
+        {"parent": "root", "label": "Metric and cohort"},
+        {"parent": "root", "label": "Assumptions and risks"}
+      ]
+    }
+  },
+  "hands_on": {
+    "labs": [
+      {"tool": "Sheets", "task": "Write and score 8 SMART questions for a funnel scenario", "dataset": "Toy app events CSV", "check": "Each question has metric, cohort, time window, and decision tag"},
+      {"tool": "SQL", "task": "Compute 7-day retention for a 'new users' cohort to support one question", "dataset": "Sample events DB", "check": "Two tables joined, cohort window respected, retention rate computed with clear denominator"}
+    ],
+    "datasets": [
+      {"name": "Mobile App Events Sample", "source": "Kaggle", "license": "CC BY or CC BY-NC", "link": "https://www.kaggle.com/"}
+    ]
+  },
+  "adaptive_quiz": {
+    "items": [
+      {"id": "c2m1-q1", "difficulty": "easy", "type": "mcq", "stem": "Which element is missing in 'Increase weekly revenue 10 percent'?", "answer": "Cohort or segment", "rationale": "SMART requires a clearly defined audience or segment."},
+      {"id": "c2m1-q2", "difficulty": "medium", "type": "short", "stem": "Name one risky assumption in a sign-up conversion analysis and how you would test it.", "answer": "Attribution of campaigns to sessions is accurate, test via controlled cohort or stricter matching.", "rationale": "Surface a key risk and a falsification path."}
+    ],
+    "summary_feedback": {
+      "glows": ["Good linkage of metrics to decisions"],
+      "grows": ["Cohort definitions need precise entry rules"],
+      "next_steps": ["Rewrite two questions with explicit cohort and time window, then retake c2m1-q1 at hard difficulty"]
+    }
+  },
+  "portfolio_artifact": {
+    "deliverable": "Decision brief and question backlog for a chosen product area",
+    "rubric": ["Decision clarity", "Metric validity", "Risk articulation", "Communication quality"],
+    "github_requirements": ["repo with /brief and /backlog", "README containing glossary and metric dictionary"]
+  },
+  "accessibility": ["Alt text for diagrams", "Captioned narration", "Keyboard accessible quiz elements"],
+  "ethics_and_bias": ["Avoid metric gaming, document data provenance and consent for user data"],
+  "time_on_task": {"reading": 1.5, "videos": 1, "labs": 4, "assessments": 1.5}
+}
+```
+
+**Readable rendering:** You will practice turning stakeholder goals into SMART questions, selecting decision-aligned metrics, and running minimal analysis to test risks. This matches Course 2’s Google focus on stakeholder communication and structured thinking. ([GoogleCerts][3])
+
+---
+
+### C2-M2 JSON
+
+```json
+{
+  "module_id": "C2-M2",
+  "title": "Data Storytelling and Narrative Structure",
+  "hours": 8,
+  "objectives": [
+    "Design a concise narrative arc with a single takeaway",
+    "Create before-or-after comparisons and select audience-appropriate visuals",
+    "Deliver a short stakeholder talk with clear recommendations and next steps"
+  ],
+  "prerequisites": ["C2-M1"],
+  "success_criteria": [
+    "Produces a 6-8 slide deck with one headline per slide and a single clear takeaway",
+    "Uses chart-appropriate encodings and includes a notes page with assumptions and risks",
+    "Presents a 3-5 minute talk that earns a 'pass' on clarity and actionability"
+  ],
+  "personalization": {
+    "grade_level_adaptation": "Undergraduate entry level",
+    "interest_hook": "music",
+    "learning_style_plan": ["visual", "auditory"]
+  },
+  "representations": {
+    "immersive_text": {
+      "sections": [
+        {
+          "heading": "Story beats for analysts",
+          "content": "Open with the decision. State the metric baseline and target. Show the smallest analysis that changes the decision if true. Close with a recommendation, a risk, and a next step."
+        },
+        {
+          "heading": "Before or after visuals that matter",
+          "content": "Prefer comparisons against baseline or control. Label axes, annotate thresholds, and avoid clutter. Reserve color for emphasis and accessibility."
+        }
+      ],
+      "embedded_questions": [
+        {
+          "anchor_section": "Story beats for analysts",
+          "mcq": {
+            "stem": "Where should the explicit recommendation live in a short deck?",
+            "choices": ["Appendix only", "Title of the final slide and repeated in notes", "Hidden in speaker notes", "Not included"],
+            "answer": "Title of the final slide and repeated in notes",
+            "why": "Stakeholders should see the recommendation clearly in the main flow and in notes."
+          }
+        }
+      ],
+      "timeline": ["Decision and audience", "Baseline and target", "Smallest analysis", "Recommendation", "Next step"],
+      "mnemonic": {"topic": "Arc", "sentence": "Decide, Baseline, Smallest, Recommend, Next"}
+    },
+    "narrated_slides": {
+      "slides": [
+        {
+          "title": "One takeaway per slide",
+          "bullets": ["Headline states the point", "Evidence supports it", "Note the assumption"],
+          "speaker_notes": "Do not narrate every axis label. Land the headline, explain the change from baseline, and give the action."
+        },
+        {
+          "title": "Accessible and honest visuals",
+          "bullets": ["Label clearly", "Use color sparingly", "Show uncertainty where relevant"],
+          "speaker_notes": "Design for clarity and ethics. Avoid chartjunk. If uncertainty matters, show intervals and explain the implication for the decision."
+        }
+      ]
+    },
+    "audio_lesson_script": {
+      "dialogue": [
+        {"role": "Teacher", "text": "Your deck says 'engagement up' but the prior slide showed a cohort change. What must you add?"},
+        {"role": "Student", "text": "A note on composition shift and a like-for-like comparison to isolate the effect."}
+      ],
+      "misconception_checks": ["Confusing correlation with causal change", "Using misleading scales or suppressed context"]
+    },
+    "mind_map": {
+      "root": "Data storytelling",
+      "nodes": [
+        {"parent": "root", "label": "Audience and decision"},
+        {"parent": "root", "label": "Baseline and target"},
+        {"parent": "root", "label": "Evidence and risks"},
+        {"parent": "root", "label": "Recommendation"}
+      ]
+    }
+  },
+  "hands_on": {
+    "labs": [
+      {"tool": "Slides", "task": "Draft a 6-8 slide decision-first narrative with one chart and one table", "dataset": "Retail sample CSV", "check": "Each slide has a one-line headline that matches the visual"},
+      {"tool": "Tableau", "task": "Build a before-or-after comparison and export a PNG for slides", "dataset": "Same CSV", "check": "Axis labeled, filter shown, annotation includes baseline and target"}
+    ],
+    "datasets": [
+      {"name": "Retail Sample Sales", "source": "Kaggle", "license": "CC BY-NC or similar", "link": "https://www.kaggle.com/"}
+    ]
+  },
+  "adaptive_quiz": {
+    "items": [
+      {"id": "c2m2-q1", "difficulty": "easy", "type": "mcq", "stem": "Which title is most decision-ready?", "answer": "Retention for new users is 41 percent, below 50 percent target, prioritize activation fix", "rationale": "It states metric, context, and action."},
+      {"id": "c2m2-q2", "difficulty": "hard", "type": "short", "stem": "Name a visual integrity risk in before or after charts and how to mitigate it.", "answer": "Changing y-axis scale to exaggerate change, keep consistent scale or flag the change explicitly.", "rationale": "Integrity improves trust and decision quality."}
+    ],
+    "summary_feedback": {
+      "glows": ["Headlines match visuals and decisions"],
+      "grows": ["Improve annotation of baselines and risks"],
+      "next_steps": ["Revise slides to include baseline labels and one explicit risk callout"]
+    }
+  },
+  "portfolio_artifact": {
+    "deliverable": "Decision-first slide deck with notes and exported visuals",
+    "rubric": ["Clarity of takeaway", "Evidence quality", "Visual integrity", "Actionability"],
+    "github_requirements": ["deck folder with PNG assets", "README with audience and decision statement"]
+  },
+  "accessibility": ["High contrast palette", "Alt text for exported images", "Captions for narrated slides"],
+  "ethics_and_bias": ["Avoid cherry-picking periods or cohorts", "Declare limitations up front"],
+  "time_on_task": {"reading": 1, "videos": 1, "labs": 4, "assessments": 2}
+}
+```
+
+**Readable rendering:** You will craft decision-first stories, build clean before or after visuals, and deliver a short talk with a single actionable recommendation. This mirrors the communication focus called out in the Google pathway. ([GoogleCerts][3])
+
+---
+
+## Course 2 capstone: Stakeholder presentation simulation
+
+**Description:** Deliver a 4 to 6 minute simulation to a mock decision maker. Open with the decision, present one metric vs baseline, show a minimal analysis, and land a recommendation with a clear next step and risk note.
+**Artifacts:** a 6 to 8 slide deck with speaker notes, one exported visualization, and a 150 word executive summary.
+**Assessment:** panel rubric on clarity, evidence, and actionability, with “Glows and Grows” feedback that informs the first assignment in Course 3. This mirrors Learn Your Way’s practice of synchronized content plus quizzes and targeted feedback. ([Google Research][1])
+
+**Course 2 grading split:**
+
+* Adaptive quizzes 20 percent
+* Hands-on labs bundle 30 percent
+* Capstone presentation 30 percent
+* Communication quality check 20 percent
+
+---
+
+## Delivery notes for platforms
+
+* **Bind synchronized views:** Provide a toggle that switches between immersive text, narrated slides, audio dialogue, and mind map for the same module, consistent with Learn Your Way’s interactive experience. ([Google Research][1])
+* **Adaptive checks:** Use embedded questions during reading, then a short section quiz that returns Glows and Grows feedback and adapts subsequent difficulty. ([Google Research][1])
+* **Tool hooks:** Link out to Sheets, Tableau, and SQL sandbox where learners construct the smallest analysis that supports their story, matching the tools called out in the Google certificate. ([Grow with Google][2])
+
+---
+
+## Sources used for alignment
+
+* Google Research, Learn Your Way overview. Personalization first, then synchronized multimodal representations including immersive text, section quizzes, slides with narration, audio lessons, and mind maps, with documented retention gains. ([Google Research][1])
+* Grow with Google, Data Analytics Certificate. Course list, tools, and emphasis on stakeholder communication and storytelling. ([Grow with Google][2])
+* UMBC page describing the Google Data Analytics certificate modules including Course 2’s focus. ([GoogleCerts][3])
+
+If you want the same treatment for Course 3 next, say the word and I will ship it.
+
+[1]: https://research.google/blog/learn-your-way-reimagining-textbooks-with-generative-ai/?utm_source=chatgpt.com "Learn Your Way: Reimagining textbooks with generative AI"
+[2]: https://grow.google/certificates/data-analytics/?utm_source=chatgpt.com "Data Analytics Certificate & Training - Grow with Google"
+[3]: https://googlecerts.umbc.edu/certificates/data-analytics/?utm_source=chatgpt.com "Data Analytics – Google Career Certificates – UMBC"

@@ -1,0 +1,69 @@
+id,module,difficulty,type,stem,options,answer,rationale,tags
+3.1-1,3.1,easy,mcq,Which best describes a foreign key (FK)?,A unique identifier within its own table|A field referencing a primary key in another table|A free-text attribute with no constraints,A field referencing a primary key in another table,FKs reference PKs of other tables to maintain relationships.,keys|relationships
+3.1-2,3.1,easy,mcq,A many-to-many relationship is typically modeled using:,Composite keys only|A junction table with two FKs|Two LEFT JOINs without constraints,A junction table with two FKs,A bridge (junction) table holds FKs to each parent.,cardinality|schema
+3.1-3,3.1,medium,mcq,CSV files are generally considered:,Structured with enforced schema|Semi-structured|Unstructured binary,Semi-structured,CSV lacks enforced types but is tabular-like.,files|formats
+3.1-4,3.1,medium,mcq,NULL is closest in meaning to:,Zero|Empty string|Missing or unknown value,Missing or unknown value,"NULL indicates absence of a value, not zero or empty text.",nulls
+3.1-5,3.1,medium,mcq,Choose the strongest primary key for People:,FullName|Email address that can change|PersonID surrogate integer,PersonID surrogate integer,Stability and uniqueness favor surrogate keys.,keys
+3.1-6,3.1,easy,fitb,Referential integrity ensures every FK points to an existing ______.,,PK,Each foreign key should match a valid primary key.,integrity
+3.1-7,3.1,medium,mcq,Cardinality 'one-to-many' means:,Each parent row matches zero or many child rows|Each child row matches zero or many parent rows|Each parent matches at most one child,Each parent row matches zero or many child rows,One-to-many from parent to children.,cardinality
+3.1-8,3.1,medium,mcq,Which constraint prevents duplicate values in a column?,NOT NULL|UNIQUE|CHECK,UNIQUE,UNIQUE enforces distinct values.,constraints
+3.1-9,3.1,hard,mcq,A composite primary key is appropriate when:,A single column can uniquely identify rows|Uniqueness requires a combination of columns|We want to reduce storage,Uniqueness requires a combination of columns,Composite PKs model uniqueness across multiple fields.,keys
+3.1-10,3.1,easy,fitb,A column permitted to have no value is recorded as ______.,,NULL,NULL denotes missing value.,nulls
+3.1-11,3.1,medium,mcq,Surrogate keys are preferred when natural keys:,Are stable and short|May change or be reused|Are already numeric,May change or be reused,Changing natural keys break references.,keys
+3.1-12,3.1,hard,mcq,Choose the best FK from Orders to Customers:,Orders.email -> Customers.email|Orders.customer_id -> Customers.customer_id|Orders.region -> Customers.region,Orders.customer_id -> Customers.customer_id,Use immutable surrogate keys rather than derived attributes.,keys
+3.1-13,3.1,medium,mcq,Which is true about JSON in analytics pipelines?,"Always normalized by default|Often semi-structured, needs schema-on-read|Binary-only","Often semi-structured, needs schema-on-read",JSON commonly parsed into typed columns.,json|formats
+3.1-14,3.1,easy,mcq,Which field is most likely categorical?,Order total|Region|Timestamp,Region,Regions are discrete categories.,types
+3.1-15,3.1,hard,mcq,To model many-to-many between Orders and Promotions you should:,Add promo_code column in Orders only|Create OrderPromotions junction table|Store JSON array in Orders and hope,Create OrderPromotions junction table,Junction tables scale to multiple promos.,schema
+3.1-16,3.1,medium,fitb,A field designed to never be NULL should be declared ______.,,NOT NULL,NOT NULL enforces presence.,constraints
+3.2-1,3.2,easy,mcq,Which clause specifies source tables?,SELECT|FROM|WHERE,FROM,Tables are listed in FROM.,select
+3.2-2,3.2,easy,mcq,Filter rows before aggregation with:,WHERE|HAVING|GROUP BY,WHERE,WHERE filters pre-aggregation.,where
+3.2-3,3.2,easy,mcq,Filter groups after aggregation with:,WHERE|HAVING|ORDER BY,HAVING,HAVING filters on aggregates.,having
+3.2-4,3.2,medium,mcq,LEFT JOIN preserves:,Only matches|All left rows plus matches|All right rows,All left rows plus matches,LEFT keeps unmatched left rows with NULLs on right.,joins
+3.2-5,3.2,medium,fitb,To limit result length use ______.,,LIMIT,LIMIT caps rows.,limit
+3.2-6,3.2,medium,mcq,Aggregate counting non-NULL values:,COUNT(*)|COUNT(col)|SUM(col),COUNT(col),COUNT(col) skips NULLs.,aggregate
+3.2-7,3.2,hard,mcq,A predicate on the right table in a LEFT JOIN should often live in:,WHERE|JOIN condition|ORDER BY,JOIN condition,Putting it in WHERE can turn LEFT into INNER.,joins
+3.2-8,3.2,medium,mcq,Choose the correct GROUP BY:,"SELECT region, SUM(sales) FROM t GROUP BY region|SELECT region, SUM(sales) FROM t GROUP BY sales","SELECT region, SUM(sales) FROM t GROUP BY region",Group on non-aggregated columns.,groupby
+3.2-9,3.2,hard,mcq,Identify the result of COUNT(*) on a LEFT join with unmatched rows:,Counts only matches|Counts left rows including unmatched|Counts only right rows,Counts left rows including unmatched,Unmatched still appear.,joins
+3.2-10,3.2,medium,fitb,A subquery in FROM requires a table ______.,,alias,Every derived table needs an alias.,subquery
+3.2-11,3.2,medium,mcq,Which orders query lists top 10 customers by revenue?,ORDER BY SUM(total) DESC LIMIT 10 with GROUP BY customer_id|LIMIT 10 without ORDER BY|ORDER BY customer_id LIMIT 10,ORDER BY SUM(total) DESC LIMIT 10 with GROUP BY customer_id,Rank by aggregated revenue.,ranking
+3.2-12,3.2,hard,mcq,Which window function previews appear later?,SUM() OVER(PARTITION BY ... ORDER BY ...)|SUM()|HAVING SUM()>1000,SUM() OVER(PARTITION BY ... ORDER BY ...),Window functions compute over partitions.,window
+3.2-13,3.2,easy,mcq,Which clause sorts results?,GROUP BY|ORDER BY|DISTINCT,ORDER BY,ORDER BY controls sort.,orderby
+3.2-14,3.2,medium,mcq,Safest join key between orders and customers:,email|customer_id|region,customer_id,Use stable surrogate.,joins|keys
+3.2-15,3.2,medium,mcq,"To exclude cancelled orders after aggregation, prefer:",WHERE status<>'Cancelled' before GROUP BY|HAVING status<>'Cancelled',WHERE status<>'Cancelled' before GROUP BY,Filter early unless based on aggregate.,where
+3.2-16,3.2,hard,mcq,Pick the correct subquery usage:,SELECT * FROM (SELECT * FROM t) as x|SELECT * FROM (SELECT * FROM t)|SELECT * FROM SELECT *,SELECT * FROM (SELECT * FROM t) as x,Alias is required.,subquery
+3.2-17,3.2,easy,fitb,To remove duplicate rows use ______.,,DISTINCT,DISTINCT collapses duplicates.,distinct
+3.2-18,3.2,medium,mcq,Which count gets unique customers per region?,COUNT(customer_id)|COUNT(DISTINCT customer_id)|SUM(customer_id),COUNT(DISTINCT customer_id),Distinct counts unique values.,distinct
+3.2-19,3.2,hard,mcq,Which join returns only matches?,LEFT|RIGHT|INNER,INNER,INNER returns matches only.,joins
+3.2-20,3.2,medium,mcq,Which is valid comment in SQL (SQLite/Postgres)?,// comment|-- comment|/**/ not allowed,-- comment,Double-dash comments.,syntax
+3.3-1,3.3,easy,mcq,Best tool to summarize Sales by Region by Month quickly:,Manual sums|Pivot table|SQL only,Pivot table,Pivots summarize quickly.,pivot
+3.3-2,3.3,easy,mcq,Validation helps you:,Prevent invalid entries|Format fonts|Plot charts,Prevent invalid entries,Validation restricts inputs.,validation
+3.3-3,3.3,medium,mcq,COUNT of unique IDs in a pivot often needs:,Calculated field or distinct approach|More colors|Merged cells,Calculated field or distinct approach,Distinct counts vary by tool.,pivot
+3.3-4,3.3,medium,fitb,Named ranges make formulas more ______.,,readable,Clarity and maintainability.,ranges
+3.3-5,3.3,medium,mcq,Which lookup is robust and non-volatile?,INDEX/MATCH or XLOOKUP|OFFSET/MATCH|INDIRECT,INDEX/MATCH or XLOOKUP,Prefer non-volatile functions.,lookup
+3.3-6,3.3,medium,mcq,To refresh a pivot after data change:,Rebuild manually|Refresh pivot|Reboot app,Refresh pivot,Use Refresh to update.,pivot
+3.3-7,3.3,hard,mcq,Your pivot double counts revenue. Likely cause:,Wrong number format|Duplicates in source grain|Missing colors,Duplicates in source grain,Aggregate at correct grain.,grain
+3.3-8,3.3,medium,mcq,Percent-of-total is best for:,Share comparisons|Exact values only|Random noise,Share comparisons,Use carefully with clear base.,formatting
+3.3-9,3.3,medium,fitb,To slice pivots interactively add ______.,,slicers,Slicers control filters.,pivot
+3.3-10,3.3,easy,mcq,Keep source data tidy by:,Merging header rows|Single header row no blanks|Splitting tables across sheets,Single header row no blanks,Tidy data improves pivots.,tidydata
+3.3-11,3.3,medium,mcq,Which chart works well with monthly sales:,Pie for 24 months|Line chart|3D surface,Line chart,Time series suits lines.,charting
+3.3-12,3.3,hard,mcq,A volatile function to avoid in large models:,INDIRECT|SUM|AVERAGE,INDIRECT,Volatile recalcs frequently.,performance
+3.3-13,3.3,medium,mcq,"In Excel Data Model, multiple tables relate via:",Pivot cache only|Relationships|Macros,Relationships,Data Model adds relationships.,datamodel
+3.3-14,3.3,easy,mcq,To format numbers consistently:,Apply number formats|Change font|Add emojis,Apply number formats,"Use currency, percent, etc.",formatting
+3.3-15,3.3,medium,mcq,Sheets API can create:,Pivot tables programmatically|Only charts|Only raw CSV,Pivot tables programmatically,API supports pivot creation.,sheets_api
+3.3-16,3.3,hard,fitb,Consider the correct ______ when aggregating to avoid Simpson's paradox.,,grain,Right level of aggregation matters.,ethics|analysis
+3.4-1,3.4,easy,mcq,Best design when subgroups must be represented proportionally:,Simple random sampling|Stratified sampling|Cluster sampling,Stratified sampling,Strata ensure subgroup representation.,sampling
+3.4-2,3.4,medium,mcq,Cluster sampling typically trades precision for:,Lower cost/logistics|Higher variance only|No tradeoffs,Lower cost/logistics,Clusters reduce travel/logistics.,sampling
+3.4-3,3.4,easy,fitb,Selecting every k-th unit is ______ sampling.,,systematic,Systematic samples use a fixed interval.,sampling
+3.4-4,3.4,medium,mcq,'Universe' in metadata refers to:,All possible values of a variable|Population the study describes|The file format,Population the study describes,Universe describes coverage.,metadata
+3.4-5,3.4,medium,mcq,Minimal metadata should include:,Title and description|Random tags only|Chart screenshot,Title and description,Core discovery fields are essential.,metadata
+3.4-6,3.4,hard,mcq,"When sampling cost per unit varies by stratum, efficient allocation uses:",Equal sample per stratum|Proportional allocation|Neyman allocation,Neyman allocation,Neyman weights by size and variance.,sampling
+3.4-7,3.4,medium,mcq,A biased frame most likely causes:,Increased precision|Coverage error|Perfect inference,Coverage error,Frame excludes part of population.,bias
+3.4-8,3.4,easy,mcq,"Which is metadata, not data?",Variable units|Survey responses|Transaction amounts,Variable units,Units describe data.,metadata
+3.4-9,3.4,medium,fitb,Record how and when data were collected under ______.,,Provenance,Provenance tracks origin and process.,metadata
+3.4-10,3.4,medium,mcq,Nonresponse bias is reduced by:,Ignoring missing cases|Weighting/Follow-ups|Deleting variables,Weighting/Follow-ups,Design and post-processing help.,bias
+3.4-11,3.4,hard,mcq,Which sampling plan fits 5 regions with travel constraints?,Cluster sampling by region|SRS nationwide|Stratified with PPS,Cluster sampling by region,Clusters reduce travel.,sampling
+3.4-12,3.4,medium,mcq,Minimal ICPSR-style metadata should also include:,Version and version date|Random emoji|Email password,Version and version date,Versioning aids reuse.,metadata
+3.4-13,3.4,easy,mcq,A codebook is closest to:,Metadata documentation|Executable code|Visualization only,Metadata documentation,Codebooks describe variables.,metadata
+3.4-14,3.4,hard,mcq,"Under cluster sampling, variance usually:",Decreases vs SRS for equal n|Is identical to SRS|Increases vs SRS for equal n,Increases vs SRS for equal n,Intra-cluster correlation reduces effective n.,variance
+3.4-15,3.4,medium,mcq,To protect privacy in metadata:,Omit license info|Avoid PII and note masking|Publish raw emails,Avoid PII and note masking,Ethical practice in docs.,ethics
+3.4-16,3.4,medium,fitb,Sampling units are the units ______.,,selected,Sampling units are selected from the frame.,definitions

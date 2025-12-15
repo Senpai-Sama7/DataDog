@@ -1,0 +1,234 @@
+# Course 3: Prepare Data for Exploration — 24 hours
+
+**Parity and pedagogy.** This course mirrors Google’s “Prepare Data for Exploration” outcomes and toolchain while using the Learn Your Way multi-modal model you provided. That means interactive text with embedded questions, narrated slides, audio teacher-student dialogs, mind maps, and adaptive quizzes, all tuned to the learner’s level and interests. Google’s own summary and blog note the same representations and the retention lift reported in their study, which we will emulate here.   Also see Google Research’s public write-up and outreach post for the 11 percentage-point retention improvement and the multi-representation design. ([Google Research][1])
+
+**External alignment.** Topics, tools, and course naming match Google’s Data Analytics Certificate track and third-party program pages so learners can crosswalk easily. ([Grow with Google][2])
+
+**Prereqs.** Course 1 and 2 or equivalent. Basic spreadsheet comfort and zero prior SQL required.
+**Tools.** Google Sheets or Excel, SQL on PostgreSQL or SQLite, and version control for artifacts. Google lists spreadsheets, SQL, Tableau, and R across the certificate, which we continue here. ([Grow with Google][2])
+
+---
+
+## Learning outcomes
+
+By the end, learners can:
+
+1. Explain data types, structures, and storage patterns in files and relational databases.
+2. Write correct SQL to select, filter, join, group, and aggregate. Core syntax follows mainstream SQL docs. ([PostgreSQL][3])
+3. Build spreadsheet analysis assets, including PivotTables or Google Sheets pivot tables. ([Google for Developers][4])
+4. Design basic sampling and collection plans with proper documentation and metadata. ([PennState: Statistics Online Courses][5])
+5. Produce a clean, analysis-ready dataset with a data dictionary and provenance notes.
+
+---
+
+## Module map and time budget
+
+| Module | Title                        | Hours  |
+| ------ | ---------------------------- | ------ |
+| 3.1    | Data Types and Structures    | 6      |
+| 3.2    | SQL Fundamentals             | 8      |
+| 3.3    | Spreadsheet Mastery          | 6      |
+| 3.4    | Data Collection and Metadata | 4      |
+|        | **Total**                    | **24** |
+
+Each module ships with: interactive text, narrated slides, audio dialog lesson, mind map, auto-graded checks, and a hands-on lab, consistent with Learn Your Way’s multi-representation approach. ([Google Research][1])
+
+---
+
+## Module 3.1 — Data Types and Structures — 6 hours
+
+**Concepts.** Structured vs semi-structured files, tabular datasets, relational schemas, keys, and cardinality. Connect the ideas to common analytics sources.
+
+**Learning assets.**
+• Interactive text with embedded questions and visuals of schema, keys, and joins.
+• Audio dialog: teacher probes misconceptions about keys and nulls, learner corrects with examples. ([Google Research][1])
+• Mind map: file formats, tables, columns, constraints, and how they map to analysis.
+
+**Lab.** Inspect two sources: a CSV fact table and a lookup table. Identify primary and foreign keys, null behavior, and data types. Create a lightweight schema sketch and a data dictionary.
+
+**Mastery checks.** 10 fast items on types, keys, and relationships with adaptive difficulty.
+
+**Deliverables.** Schema diagram and a 1-page data dictionary draft that will grow through the course. For documentation, follow a minimal metadata practice so later users can reuse your data. ([ICPSR][6])
+
+---
+
+## Module 3.2 — SQL Fundamentals — 8 hours
+
+**Concepts.** SELECT, FROM, WHERE, ORDER BY, LIMIT. INNER and LEFT JOINs. GROUP BY and aggregates. Subqueries and simple CTEs as previews.
+
+**Learning assets.**
+• Interactive SQL sandbox with progressive tasks.
+• Narrated slide walkthroughs that map each clause to the logical query order using examples aligned with mainstream PostgreSQL docs. ([PostgreSQL][3])
+• Join visualizer shows row matching and unmatched rows as you change join types. ([PostgreSQL][7])
+
+**Practice set.**
+
+1. Basic retrieval with filters. Use `SELECT` forms per standard docs. ([PostgreSQL][8])
+2. Multi-table joins on keys. ([PostgreSQL][7])
+3. Aggregations with `GROUP BY`, `HAVING`.
+4. Subquery taste and a teaser on window functions for later courses. ([PostgreSQL][9])
+
+**Lab.** Use a retail sample dataset to answer six business questions: revenue by month, top categories, top customers, and a fulfillment KPI. The classic Superstore dataset is acceptable and is available with Tableau Desktop and in public examples, which learners can download if needed. ([Tableau Help][10])
+
+**Mastery checks.** Timed auto-graded SQL items. Two attempts, immediate feedback.
+
+**Deliverables.** A `.sql` script with queries and a short readme that explains assumptions.
+
+---
+
+## Module 3.3 — Spreadsheet Mastery — 6 hours
+
+**Concepts.** Data validation, named ranges, lookups, conditional logic, text and date functions, and pivot tables.
+• Google Sheets pivot tables and API framing for automation. ([Google for Developers][4])
+• Excel PivotTables core workflow and refresh model. ([Microsoft Support][11])
+
+**Learning assets.**
+• Guided workbook with progressively locked tabs.
+• Narrated demo showing lookup formulas, pivot build, slicers, and basic KPI formatting.
+• Audio dialog lesson on when to use a spreadsheet vs SQL.
+
+**Lab.** Build a pivot showing Sales by Region by Month, then add a percent-of-total view and conditional formatting. Export a clean summary table for downstream SQL or Tableau.
+
+**Mastery checks.** Short tasks that confirm correct pivot configuration and formula outputs.
+
+**Deliverables.** Spreadsheet with a PivotTable sheet, a Formulas sheet, and a Notes sheet capturing data-cleaning steps.
+
+---
+
+## Module 3.4 — Data Collection and Metadata — 4 hours
+
+**Concepts.** Sampling frames, SRS, stratified sampling, cluster sampling, and systematic sampling. Use a brief, practice-first presentation based on mainstream sampling coursework materials so learners get the why and when, not just the math. ([PennState: Statistics Online Courses][5])
+
+**Quality and documentation.** Learners create a basic data collection plan and metadata. Model your metadata and documentation practices on community standards so others can discover and reuse your data. ICPSR’s public guidance and schema pages are good references. ([ICPSR][6])
+
+**Learning assets.**
+• Interactive text with micro-scenarios for each sampling method.
+• Checklist builder for collection quality, data dictionary fields, and provenance.
+• Mind map from “business question” to “sampling strategy” to “metadata”.
+
+**Lab.** Draft a sampling plan for a small survey or log collection, then capture key metadata elements: dataset title, description, variables, units, coverage, time, collection method, caveats, and a change log. ([ICPSR][6])
+
+**Deliverables.** One-page sampling plan plus a filled metadata template.
+
+---
+
+## Capstone for Course 3 — Database extraction and preparation project — 6 to 8 hours
+
+**Scenario.** You are the first analyst on a retail operations project. Build a clean, joined, analysis-ready dataset and a short brief.
+
+**Tasks.**
+
+1. Profile two to three raw tables and sketch the schema.
+2. Write SQL to extract and join facts with lookups, aggregate to a grain useful for analysis, and export to CSV. See standard SQL docs for clause syntax and joins. ([PostgreSQL][3])
+3. Create a spreadsheet pivot and one reproducible summary table. ([Microsoft Support][11])
+4. Package a data dictionary, sampling notes if applicable, and minimal ICPSR-style metadata elements. ([ICPSR][6])
+
+**Optional dataset sources.**
+• Tableau “Sample Superstore” as a compact, documented retail dataset. ([Tableau Help][10])
+• Google Dataset Search to locate a similar open dataset when Superstore is unavailable. ([datasetsearch.research.google.com][12])
+
+**Outputs.**
+• `extract.sql`, `dataset.csv`, `analysis.xlsx` or `analysis.gsheet`, `data_dictionary.md`, `metadata.md`.
+
+**Rubric for Course 3 Capstone.**
+• Correctness of SQL joins and aggregations 30 percent.
+• Cleanliness and integrity checks 25 percent.
+• Spreadsheet pivot and summary table 20 percent.
+• Documentation and metadata quality 15 percent.
+• Narrative brief with assumptions 10 percent.
+
+---
+
+## Assessment pattern
+
+• Adaptive quizzes sprinkled in every module with immediate feedback, following the Learn Your Way format of frequent checks and multiple representations. ([Google Research][1])
+• Two auto-graded SQL blocks and one spreadsheet build.
+• Capstone as above.
+
+Target thresholds continue to match your global rubric: 75 percent average across adaptive quizzes, 80 percent plus on hands-on tasks, and strong documentation.
+
+---
+
+## AI personalization hooks
+
+For each module, the platform adapts grade level, pace, and interest examples in sports, food, or music, and rotates modalities. This mirrors Google’s approach to personalized, multi-modal content and real-time feedback.  ([blog.google][13])
+
+---
+
+## LLM build scripts you can drop into your course generator
+
+Use one per module. Replace bracketed items before running.
+
+### Script M3.1 — Data Types and Structures
+
+> Role: You are a pedagogy-aware course builder.
+> Inputs: outline for Module 3.1, learner profile, target tools.
+> Goal: produce interactive text, narrated slides outline, audio dialog script, a mind map, 10 adaptive questions, and a hands-on lab.
+> Constraints: follow Learn Your Way’s multi-representation pattern with embedded questions and immediate feedback. Cite docs where applicable.
+> Deliver:
+>
+> 1. Interactive text with 6 checkpoints.
+> 2. Slide outline with speaker notes.
+> 3. Audio dialog script that surfaces misconceptions about keys and nulls.
+> 4. Mind map JSON for nodes and edges.
+> 5. Ten adaptive MCQs with rationales and difficulty tiers.
+> 6. Lab brief that culminates in a schema sketch and data dictionary starter using minimal metadata elements.
+
+### Script M3.2 — SQL Fundamentals
+
+> Inputs: sample schema plus retail dataset.
+> Produce:
+> • Progressive SQL tasks that align to `SELECT`, filtering, joins, `GROUP BY`, and simple subqueries. Ground syntax in mainstream docs and include runnable solutions. ([PostgreSQL][3])
+> • Auto-grader test cases and error hints.
+> • Join visualizer prompts and examples.
+> • Two mini-projects that answer stakeholder questions, each with a short written justification.
+
+### Script M3.3 — Spreadsheet Mastery
+
+> Produce:
+> • Guided workbook plan with tabs for raw data, pivot, formulas, and results.
+> • A pivot build checklist consistent with Google Sheets and Excel references. ([Google for Developers][4])
+> • Ten quick tasks that verify formula correctness and pivot configuration.
+
+### Script M3.4 — Data Collection and Metadata
+
+> Produce:
+> • Scenario-based items for SRS, stratified, cluster, and systematic sampling, each with “when to use” guidance and a short computation. ([PennState: Statistics Online Courses][5])
+> • A one-page sampling plan template.
+> • A minimal metadata template informed by ICPSR guidance, including title, description, variables, units, coverage, method, caveats, and provenance. ([ICPSR][6])
+
+---
+
+## Instructor delivery notes
+
+• Keep every lesson multi-modal and adaptive. Google’s Learn Your Way emphasizes embedded questions, narrated slides, audio dialogs, and mind maps, all adapted by level and interest. ([Google Research][1])
+• Use widely available datasets. Superstore is bundled with Tableau and documented by Tableau’s help pages, which prevents dead links. ([Tableau Help][10])
+• When teaching pivots, reference the official product docs so platform differences are clear. ([Google for Developers][4])
+
+---
+
+### References used in the design above
+
+Learn Your Way research and overview. ([Google Research][1])
+Google Data Analytics Certificate curriculum overview and tools. ([Grow with Google][2])
+SQL syntax and joins tutorials. ([PostgreSQL][3])
+Pivot table references for Sheets and Excel. ([Google for Developers][4])
+Sampling method overviews. ([PennState: Statistics Online Courses][5])
+Metadata and documentation practices. ([ICPSR][6])
+Multi-modal elements and retention lift from your attached PDF.
+
+If you want, I can now generate the learner-facing interactive text, slides outline, audio scripts, mind maps, and lab packs for each module exactly in this format.
+
+[1]: https://research.google/blog/learn-your-way-reimagining-textbooks-with-generative-ai/?utm_source=chatgpt.com "Learn Your Way: Reimagining textbooks with generative AI"
+[2]: https://grow.google/certificates/data-analytics/?utm_source=chatgpt.com "Data Analytics Certificate & Training - Grow with Google"
+[3]: https://www.postgresql.org/docs/current/tutorial-select.html?utm_source=chatgpt.com "PostgreSQL: Documentation: 18: 2.5. Querying a Table"
+[4]: https://developers.google.com/workspace/sheets/api/guides/pivot-tables?utm_source=chatgpt.com "Pivot tables  |  Google Sheets  |  Google for Developers"
+[5]: https://online.stat.psu.edu/stat506/Lesson06?utm_source=chatgpt.com "6  Part A: Stratified Sampling – STAT 506 | Sampling Theory and Methods"
+[6]: https://www.icpsr.umich.edu/pages/datamanagement/lifecycle/metadata.html?utm_source=chatgpt.com "ICPSR | Data Management | Metadata"
+[7]: https://www.postgresql.org/docs/current/tutorial-join.html?utm_source=chatgpt.com "PostgreSQL: Documentation: 18: 2.6. Joins Between Tables"
+[8]: https://www.postgresql.org/docs/current/static/sql-select.html?utm_source=chatgpt.com "PostgreSQL: Documentation: 18: SELECT"
+[9]: https://www.postgresql.org/docs/current/functions-window.html?utm_source=chatgpt.com "PostgreSQL: Documentation: 18: 9.22. Window Functions"
+[10]: https://help.tableau.com/current/guides/get-started-tutorial/en-us/get-started-tutorial-connect.htm?utm_source=chatgpt.com "Step 1: Connect to a sample data source - Tableau"
+[11]: https://support.microsoft.com/en-gb/office/create-a-pivottable-to-analyze-worksheet-data-a9a84538-bfe9-40a9-a8e9-f99134456576?utm_source=chatgpt.com "Create a PivotTable to analyze worksheet data - Microsoft Support"
+[12]: https://datasetsearch.research.google.com/help?utm_source=chatgpt.com "Dataset Search"
+[13]: https://blog.google/outreach-initiatives/education/learn-your-way/?utm_source=chatgpt.com "Learn Your Way from Google adapts educational content using AI"

@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop>
+  <objectbank ident="C3_MCQ_Bank" title="Course 3 MCQ Bank">
+    <item ident="3.1-1" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which best describes a foreign key (FK)?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">A unique identifier within its own table</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">A field referencing a primary key in another table</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">A free-text attribute with no constraints</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-2" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A many-to-many relationship is typically modeled using:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Composite keys only</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">A junction table with two FKs</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Two LEFT JOINs without constraints</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-3" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">CSV files are generally considered:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Structured with enforced schema</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Semi-structured</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Unstructured binary</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-4" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">NULL is closest in meaning to:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Zero</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Empty string</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Missing or unknown value</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-5" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Choose the strongest primary key for People:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">FullName</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Email address that can change</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">PersonID surrogate integer</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-7" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Cardinality 'one-to-many' means:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Each parent row matches zero or many child rows</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Each child row matches zero or many parent rows</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Each parent matches at most one child</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-8" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which constraint prevents duplicate values in a column?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">NOT NULL</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">UNIQUE</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">CHECK</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-9" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A composite primary key is appropriate when:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">A single column can uniquely identify rows</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Uniqueness requires a combination of columns</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">We want to reduce storage</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-11" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Surrogate keys are preferred when natural keys:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Are stable and short</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">May change or be reused</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Are already numeric</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-12" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Choose the best FK from Orders to Customers:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Orders.email -&gt; Customers.email</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Orders.customer_id -&gt; Customers.customer_id</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Orders.region -&gt; Customers.region</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-13" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which is true about JSON in analytics pipelines?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Always normalized by default</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Often semi-structured, needs schema-on-read</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Binary-only</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-14" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which field is most likely categorical?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Order total</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Region</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Timestamp</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.1-15" title="3.1">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">To model many-to-many between Orders and Promotions you should:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Add promo_code column in Orders only</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Create OrderPromotions junction table</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Store JSON array in Orders and hope</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-1" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which clause specifies source tables?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">SELECT</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">FROM</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">WHERE</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-2" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Filter rows before aggregation with:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">WHERE</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">HAVING</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">GROUP BY</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-3" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Filter groups after aggregation with:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">WHERE</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">HAVING</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">ORDER BY</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-4" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">LEFT JOIN preserves:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Only matches</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">All left rows plus matches</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">All right rows</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-6" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Aggregate counting non-NULL values:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">COUNT(*)</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">COUNT(col)</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">SUM(col)</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-7" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A predicate on the right table in a LEFT JOIN should often live in:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">WHERE</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">JOIN condition</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">ORDER BY</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-8" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Choose the correct GROUP BY:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">SELECT region, SUM(sales) FROM t GROUP BY region</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">SELECT region, SUM(sales) FROM t GROUP BY sales</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-9" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Identify the result of COUNT(*) on a LEFT join with unmatched rows:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Counts only matches</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Counts left rows including unmatched</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Counts only right rows</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-11" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which orders query lists top 10 customers by revenue?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">ORDER BY SUM(total) DESC LIMIT 10 with GROUP BY customer_id</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">LIMIT 10 without ORDER BY</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">ORDER BY customer_id LIMIT 10</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-12" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which window function previews appear later?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">SUM() OVER(PARTITION BY ... ORDER BY ...)</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">SUM()</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">HAVING SUM()&gt;1000</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-13" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which clause sorts results?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">GROUP BY</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">ORDER BY</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">DISTINCT</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-14" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Safest join key between orders and customers:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">email</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">customer_id</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">region</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-15" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">To exclude cancelled orders after aggregation, prefer:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">WHERE status&lt;&gt;'Cancelled' before GROUP BY</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">HAVING status&lt;&gt;'Cancelled'</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-16" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Pick the correct subquery usage:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">SELECT * FROM (SELECT * FROM t) as x</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">SELECT * FROM (SELECT * FROM t)</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">SELECT * FROM SELECT *</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-18" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which count gets unique customers per region?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">COUNT(customer_id)</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">COUNT(DISTINCT customer_id)</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">SUM(customer_id)</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-19" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which join returns only matches?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">LEFT</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">RIGHT</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">INNER</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.2-20" title="3.2">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which is valid comment in SQL (SQLite/Postgres)?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">// comment</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">-- comment</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">/**/ not allowed</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-1" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Best tool to summarize Sales by Region by Month quickly:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Manual sums</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Pivot table</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">SQL only</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-2" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Validation helps you:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Prevent invalid entries</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Format fonts</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Plot charts</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-3" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">COUNT of unique IDs in a pivot often needs:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Calculated field or distinct approach</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">More colors</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Merged cells</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-5" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which lookup is robust and non-volatile?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">INDEX/MATCH or XLOOKUP</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">OFFSET/MATCH</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">INDIRECT</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-6" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">To refresh a pivot after data change:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Rebuild manually</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Refresh pivot</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Reboot app</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-7" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Your pivot double counts revenue. Likely cause:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Wrong number format</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Duplicates in source grain</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Missing colors</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-8" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Percent-of-total is best for:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Share comparisons</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Exact values only</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Random noise</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-10" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Keep source data tidy by:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Merging header rows</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Single header row no blanks</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Splitting tables across sheets</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-11" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which chart works well with monthly sales:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Pie for 24 months</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Line chart</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">3D surface</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-12" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A volatile function to avoid in large models:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">INDIRECT</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">SUM</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">AVERAGE</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-13" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">In Excel Data Model, multiple tables relate via:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Pivot cache only</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Relationships</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Macros</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-14" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">To format numbers consistently:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Apply number formats</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Change font</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Add emojis</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.3-15" title="3.3">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Sheets API can create:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Pivot tables programmatically</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Only charts</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Only raw CSV</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-1" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Best design when subgroups must be represented proportionally:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Simple random sampling</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Stratified sampling</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Cluster sampling</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-2" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Cluster sampling typically trades precision for:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Lower cost/logistics</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Higher variance only</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">No tradeoffs</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-4" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">'Universe' in metadata refers to:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">All possible values of a variable</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Population the study describes</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">The file format</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-5" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Minimal metadata should include:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Title and description</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Random tags only</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Chart screenshot</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-6" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">When sampling cost per unit varies by stratum, efficient allocation uses:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Equal sample per stratum</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Proportional allocation</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Neyman allocation</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-7" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A biased frame most likely causes:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Increased precision</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Coverage error</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Perfect inference</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-8" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which is metadata, not data?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Variable units</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Survey responses</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Transaction amounts</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-10" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Nonresponse bias is reduced by:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Ignoring missing cases</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Weighting/Follow-ups</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Deleting variables</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-11" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Which sampling plan fits 5 regions with travel constraints?</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Cluster sampling by region</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">SRS nationwide</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Stratified with PPS</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-12" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Minimal ICPSR-style metadata should also include:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Version and version date</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Random emoji</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Email password</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-13" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">A codebook is closest to:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Metadata documentation</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Executable code</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Visualization only</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice1</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-14" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">Under cluster sampling, variance usually:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Decreases vs SRS for equal n</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Is identical to SRS</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Increases vs SRS for equal n</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice3</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+    <item ident="3.4-15" title="3.4">
+      <presentation>
+        <material>
+          <mattext texttype="text/plain">To protect privacy in metadata:</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="choice1"><material><mattext texttype="text/plain">Omit license info</mattext></material></response_label>
+            <response_label ident="choice2"><material><mattext texttype="text/plain">Avoid PII and note masking</mattext></material></response_label>
+            <response_label ident="choice3"><material><mattext texttype="text/plain">Publish raw emails</mattext></material></response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes><decvar vartype="Integer" minvalue="0" maxvalue="1" /></outcomes>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">choice2</varequal>
+          </conditionvar>
+          <setvar action="Set">1</setvar>
+        </respcondition>
+        <respcondition continue="Yes">
+          <conditionvar><other/></conditionvar>
+          <setvar action="Set">0</setvar>
+        </respcondition>
+      </resprocessing>
+    </item>
+  </objectbank>
+</questestinterop>

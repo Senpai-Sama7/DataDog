@@ -1,3 +1,2 @@
-"""Storage module initialization."""
 
-__all__ = []
+# No public exports from storage for now, as MetadataService is the primary interface.
