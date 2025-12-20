@@ -1,6 +1,7 @@
 
 import asyncio
-from typing import AsyncGenerator
+from contextlib import asynccontextmanager
+from typing import AsyncIterator
 
 import asyncpg
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
@@ -45,7 +46,8 @@ class DatabaseManager:
             self.engine = None
             self.SessionLocal = None
 
-    async def get_session(self) -> AsyncGenerator[AsyncSession, None]:
+    @asynccontextmanager
+    async def get_session(self) -> AsyncIterator[AsyncSession]:
         """
         Provide an asynchronous session for database operations.
         """
