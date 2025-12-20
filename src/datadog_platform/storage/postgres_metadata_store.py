@@ -351,7 +351,7 @@ class PostgreSQLMetadataStore:
         try:
             stmt = select(DataSourceModel).filter_by(pipeline_id=str(pipeline_id))
             result = await maybe_await(session.execute(stmt))
-            data_sources = getattr(result, "scalars", lambda: [])().all()
+            data_sources = result.scalars().all() if hasattr(result, "scalars") else []
             return [ds.to_dict() for ds in data_sources]
         finally:
             await maybe_await(session_context.__aexit__(None, None, None))
