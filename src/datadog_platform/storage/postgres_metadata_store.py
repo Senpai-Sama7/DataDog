@@ -364,7 +364,12 @@ class PostgreSQLMetadataStore:
         try:
             stmt = select(TransformationModel).filter_by(pipeline_id=str(pipeline_id))
             result = await maybe_await(session.execute(stmt))
-            transformations = result.scalars().all() if hasattr(result, "scalars") else []
+            if hasattr(result, "scalars"):
+                transformations = result.scalars().all()
+            elif hasattr(result, "fetchall"):
+                transformations = [row[0] for row in result.fetchall()]
+            else:
+                raise RuntimeError(f"Unexpected execute() result type: {type(result)!r}")
             return [t.to_dict() for t in transformations]
         finally:
             await maybe_await(session_context.__aexit__(None, None, None))
